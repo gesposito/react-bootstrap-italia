@@ -5,15 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build-storybook": "build-storybook -c .storybook -o .out",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@storybook/addon-info": "^3.3.15",
     "@storybook/addon-knobs": "^3.3.15",
     "@storybook/addon-notes": "^3.3.15",
     "@storybook/react": "^3.3.15",
+    "@storybook/storybook-deployer": "^2.3.0",
     "babel-core": "^6.26.0"
   },
   "dependencies": {
