@@ -14,7 +14,9 @@
     "babel-core": "^6.26.0"
   },
   "dependencies": {
+    "bootstrap-italia": "git+https://github.com/italia/bootstrap-italia.git",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "reactstrap": "^5.0.0-beta.2"
   }
 }
