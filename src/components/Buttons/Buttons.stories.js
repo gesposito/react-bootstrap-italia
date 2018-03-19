@@ -3,7 +3,6 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 
-import "bootstrap-italia/dist/css/bootstrap-italia.css";
 import { Button } from "reactstrap";
 
 storiesOf("Componenti/Button", module)

@@ -1,6 +1,8 @@
 import { configure } from "@storybook/react";
 import { setDefaults } from '@storybook/addon-info';
 
+import "bootstrap-italia/dist/css/bootstrap-italia.css";
+
 // addon-info
 setDefaults({
   header: false, // Toggles display of header with component name and description
