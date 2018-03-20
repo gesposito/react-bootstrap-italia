@@ -76,4 +76,4 @@ storiesOf("Componenti/Button Group", module)
 
   storiesOf("Componenti/Button Group/Nesting", module)
     .addDecorator((story, context) => withInfo("")(story)(context))
-    .add("Nesting", () => <ButtonGroupDropdownExample />);
+    .add("Esempi", () => <ButtonGroupDropdownExample />);
