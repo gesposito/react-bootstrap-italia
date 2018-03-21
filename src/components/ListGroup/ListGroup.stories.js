@@ -125,37 +125,37 @@ storiesOf("Componenti/ListGroup", module)
   .add("Contenuto personalizzato", () => (
     <ListGroup className="w-50">
       <ListGroupItem action className="flex-column align-items-start active">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Intestazione dell'elemento dell'elenco</h5>
+        <div className="d-flex w-100 justify-content-between">
+          <h5 className="mb-1">Intestazione dell'elemento dell'elenco</h5>
           <small>3 days ago</small>
         </div>
-        <p class="mb-1">
+        <p className="mb-1">
           Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
           eget risus varius blandit.
         </p>
         <small>Donec id elit non mi porta.</small>
       </ListGroupItem>
       <ListGroupItem action className="flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Intestazione dell'elemento dell'elenco</h5>
-          <small class="text-muted">3 giorni fa</small>
+        <div className="d-flex w-100 justify-content-between">
+          <h5 className="mb-1">Intestazione dell'elemento dell'elenco</h5>
+          <small className="text-muted">3 giorni fa</small>
         </div>
-        <p class="mb-1">
+        <p className="mb-1">
           Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
           eget risus varius blandit.
         </p>
-        <small class="text-muted">Donec id elit non mi porta.</small>
+        <small className="text-muted">Donec id elit non mi porta.</small>
       </ListGroupItem>
       <ListGroupItem action className="flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Intestazione dell'elemento dell'elenco</h5>
-          <small class="text-muted">3 giorni fa</small>
+        <div className="d-flex w-100 justify-content-between">
+          <h5 className="mb-1">Intestazione dell'elemento dell'elenco</h5>
+          <small className="text-muted">3 giorni fa</small>
         </div>
-        <p class="mb-1">
+        <p className="mb-1">
           Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
           eget risus varius blandit.
         </p>
-        <small class="text-muted">Donec id elit non mi porta.</small>
+        <small className="text-muted">Donec id elit non mi porta.</small>
       </ListGroupItem>
     </ListGroup>
   ));

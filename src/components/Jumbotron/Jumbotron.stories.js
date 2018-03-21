@@ -28,8 +28,8 @@ storiesOf("Componenti/Hero", module)
   .add("Fluid", () => (
     <Jumbotron fluid className="hero m-3">
       <Container fluid>
-        <h1 class="hero-heading display-4">Hero fluido</h1>
-        <p class="lead">
+        <h1 className="hero-heading display-4">Hero fluido</h1>
+        <p className="lead">
           Questo è un hero modificato che occupa l'intero spazio orizzontale del
           suo contenitore.
         </p>
