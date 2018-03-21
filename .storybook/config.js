@@ -2,6 +2,7 @@ import { configure } from "@storybook/react";
 import { setDefaults } from '@storybook/addon-info';
 
 import "bootstrap-italia/dist/css/bootstrap-italia.css";
+import "../src/assets/css/docs.min.css";
 
 // addon-info
 setDefaults({
