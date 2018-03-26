@@ -32,7 +32,8 @@ class NavbarExample extends React.Component {
   }
 
   render() {
-    return <Navbar light expand="lg" className="bg-light">
+    return (
+      <Navbar light expand="lg" className="bg-light">
         <NavbarBrand href="#">Navbar</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
 
@@ -63,13 +64,23 @@ class NavbarExample extends React.Component {
           </Nav>
 
           <Form inline className="my-2 my-lg-0">
-            <Input className="form-control mr-sm-2" type="search" placeholder="Search" />
-            <Button outline color="success" className="my-2 my-sm-0" type="submit">
+            <Input
+              className="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+            />
+            <Button
+              outline
+              color="success"
+              className="my-2 my-sm-0"
+              type="submit"
+            >
               Search
             </Button>
           </Form>
         </Collapse>
-      </Navbar>;
+      </Navbar>
+    );
   }
 }
 

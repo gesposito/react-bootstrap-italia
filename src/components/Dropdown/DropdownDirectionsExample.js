@@ -14,7 +14,7 @@ class DropdownDirectionsExample extends React.Component {
     this.state = {
       btnDropUp: false,
       btnDropLeft: false,
-      btnDropRight: false,
+      btnDropRight: false
     };
   }
 
@@ -25,8 +25,13 @@ class DropdownDirectionsExample extends React.Component {
   }
 
   render() {
-    return <div style={{ padding: 200 }}>
-        <Dropdown direction="up" isOpen={this.state.btnDropUp} toggle={() => this.toggle("Up")}>
+    return (
+      <div style={{ padding: 200 }}>
+        <Dropdown
+          direction="up"
+          isOpen={this.state.btnDropUp}
+          toggle={() => this.toggle("Up")}
+        >
           <DropdownToggle caret>Dropup</DropdownToggle>
           <DropdownMenu>
             <DropdownItem>Azione 1</DropdownItem>
@@ -34,7 +39,12 @@ class DropdownDirectionsExample extends React.Component {
           </DropdownMenu>
         </Dropdown>
 
-        <Dropdown className="mt-3" direction="left" isOpen={this.state.btnDropLeft} toggle={() => this.toggle("Left")}>
+        <Dropdown
+          className="mt-3"
+          direction="left"
+          isOpen={this.state.btnDropLeft}
+          toggle={() => this.toggle("Left")}
+        >
           <DropdownToggle caret>Dropleft</DropdownToggle>
           <DropdownMenu>
             <DropdownItem>Azione 1</DropdownItem>
@@ -42,14 +52,20 @@ class DropdownDirectionsExample extends React.Component {
           </DropdownMenu>
         </Dropdown>
 
-        <Dropdown className="mt-3" direction="right" isOpen={this.state.btnDropRight} toggle={() => this.toggle("Right")}>
+        <Dropdown
+          className="mt-3"
+          direction="right"
+          isOpen={this.state.btnDropRight}
+          toggle={() => this.toggle("Right")}
+        >
           <DropdownToggle caret>Dropright</DropdownToggle>
           <DropdownMenu>
             <DropdownItem>Azione 1</DropdownItem>
             <DropdownItem>Azione 2</DropdownItem>
           </DropdownMenu>
         </Dropdown>
-      </div>;
+      </div>
+    );
   }
 }
 

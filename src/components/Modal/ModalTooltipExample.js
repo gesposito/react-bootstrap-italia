@@ -37,21 +37,31 @@ class ModalTooltipExample extends React.Component {
   }
 
   render() {
-    return <div>
+    return (
+      <div>
         <Button color="primary" onClick={this.toggle}>
           Lancia la demo della modale
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>
-            Titolo della modale
-          </ModalHeader>
+          <ModalHeader toggle={this.toggle}>Titolo della modale</ModalHeader>
           <ModalBody>
             <h5>Popover in una modale</h5>
             <p>
-              Questo <Button color="secondary" id="Example" onClick={this.togglePopover}>
+              Questo{" "}
+              <Button
+                color="secondary"
+                id="Example"
+                onClick={this.togglePopover}
+              >
                 Pulsante
-              </Button> attiva un popover al click.
-              <Popover placement="right" isOpen={this.state.popoverOpen} target="Example" toggle={this.togglePopover}>
+              </Button>{" "}
+              attiva un popover al click.
+              <Popover
+                placement="right"
+                isOpen={this.state.popoverOpen}
+                target="Example"
+                toggle={this.togglePopover}
+              >
                 <PopoverHeader>Titolo del popover</PopoverHeader>
                 <PopoverBody>
                   Il contenuto del corpo del popover è impostato in questo
@@ -64,9 +74,12 @@ class ModalTooltipExample extends React.Component {
             <p>
               <a href="#" title="Tooltip" id="Example1">
                 Questo link
-              </a> e <a href="#" title="Tooltip" id="Example2">
+              </a>{" "}
+              e{" "}
+              <a href="#" title="Tooltip" id="Example2">
                 questo link
-              </a> attivano un tooltip al passaggio del mouse.
+              </a>{" "}
+              attivano un tooltip al passaggio del mouse.
               <UncontrolledTooltip placement="top" target="Example1">
                 Tooltip
               </UncontrolledTooltip>
@@ -84,7 +97,8 @@ class ModalTooltipExample extends React.Component {
             </Button>
           </ModalFooter>
         </Modal>
-      </div>;
+      </div>
+    );
   }
 }
 

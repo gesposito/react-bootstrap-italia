@@ -108,7 +108,7 @@ storiesOf("Componenti/Pagination", module)
         </PaginationLink>
       </PaginationItem>
       <PaginationItem className="d-none d-sm-block">
-        <span class="p-3">...</span>
+        <span className="p-3">...</span>
       </PaginationItem>
       <PaginationItem className="d-none d-sm-block">
         <PaginationLink href="#">9</PaginationLink>
@@ -126,7 +126,7 @@ storiesOf("Componenti/Pagination", module)
         <PaginationLink href="#">13</PaginationLink>
       </PaginationItem>
       <PaginationItem className="d-none d-sm-block">
-        <span class="p-3">...</span>
+        <span className="p-3">...</span>
       </PaginationItem>
       <PaginationItem>
         <PaginationLink next href="#">

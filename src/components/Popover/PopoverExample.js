@@ -37,18 +37,25 @@ class PopoverExample extends React.Component {
   }
 
   render() {
-    return <div>
+    return (
+      <div>
         <Button color="danger" id="Example" onClick={this.togglePopover}>
           Clicca par attivare/disattivare il popover
         </Button>
-        <Popover placement="right" isOpen={this.state.popoverOpen} target="Example" toggle={this.togglePopover}>
+        <Popover
+          placement="right"
+          isOpen={this.state.popoverOpen}
+          target="Example"
+          toggle={this.togglePopover}
+        >
           <PopoverHeader>Titolo del popover</PopoverHeader>
           <PopoverBody>
             Ed ecco alcuni contenuti sorprendenti. È molto coinvolgente. Non
             trovi?
           </PopoverBody>
         </Popover>
-      </div>;
+      </div>
+    );
   }
 }
 

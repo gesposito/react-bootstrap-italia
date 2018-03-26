@@ -1,18 +1,12 @@
 import React from "react";
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter
-} from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 class ModalExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
-      size: '',
+      size: ""
     };
 
     this.toggle = this.toggle.bind(this);
@@ -21,97 +15,153 @@ class ModalExample extends React.Component {
   toggle(size) {
     this.setState({
       modal: !this.state.modal,
-      size,
+      size
     });
   }
 
   render() {
     const { long, centered, fade, sizing } = this.props;
-    
-    return <div>
+
+    return (
+      <div>
         {(() => {
           if (sizing) {
-            return <div>
-                <Button color="primary" onClick={() => this.toggle("lg")} className="mr-3">
+            return (
+              <div>
+                <Button
+                  color="primary"
+                  onClick={() => this.toggle("lg")}
+                  className="mr-3"
+                >
                   Modale grande
                 </Button>
                 <Button color="primary" onClick={() => this.toggle("sm")}>
                   Modale piccola
                 </Button>
-              </div>;
+              </div>
+            );
           }
 
-          return <Button color="primary" onClick={this.toggle}>
+          return (
+            <Button color="primary" onClick={this.toggle}>
               Lancia la demo della modale
-            </Button>;
+            </Button>
+          );
         })()}
-        <Modal fade={fade} size={this.state.size} centered={centered} isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>
-            Titolo della modale
-          </ModalHeader>
+        <Modal
+          fade={fade}
+          size={this.state.size}
+          centered={centered}
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}
+        >
+          <ModalHeader toggle={this.toggle}>Titolo della modale</ModalHeader>
           <ModalBody>
             {(() => {
               if (long) {
-                return <p>
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                return (
+                  <p>
+                    Cras mattis consectetur purus sit amet fermentum. Cras justo
+                    odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                    risus, porta ac consectetur ac, vestibulum at eros.
                     <br />
                     <br />
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    Praesent commodo cursus magna, vel scelerisque nisl
+                    consectetur et. Vivamus sagittis lacus vel augue laoreet
+                    rutrum faucibus dolor auctor.
                     <br />
                     <br />
-                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                    Aenean lacinia bibendum nulla sed consectetur. Praesent
+                    commodo cursus magna, vel scelerisque nisl consectetur et.
+                    Donec sed odio dui. Donec ullamcorper nulla non metus auctor
+                    fringilla.
                     <br />
                     <br />
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    Cras mattis consectetur purus sit amet fermentum. Cras justo
+                    odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                    risus, porta ac consectetur ac, vestibulum at eros.
                     <br />
                     <br />
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    Praesent commodo cursus magna, vel scelerisque nisl
+                    consectetur et. Vivamus sagittis lacus vel augue laoreet
+                    rutrum faucibus dolor auctor.
                     <br />
                     <br />
-                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                    Aenean lacinia bibendum nulla sed consectetur. Praesent
+                    commodo cursus magna, vel scelerisque nisl consectetur et.
+                    Donec sed odio dui. Donec ullamcorper nulla non metus auctor
+                    fringilla.
                     <br />
                     <br />
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    Cras mattis consectetur purus sit amet fermentum. Cras justo
+                    odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                    risus, porta ac consectetur ac, vestibulum at eros.
                     <br />
                     <br />
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    Praesent commodo cursus magna, vel scelerisque nisl
+                    consectetur et. Vivamus sagittis lacus vel augue laoreet
+                    rutrum faucibus dolor auctor.
                     <br />
                     <br />
-                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                    Aenean lacinia bibendum nulla sed consectetur. Praesent
+                    commodo cursus magna, vel scelerisque nisl consectetur et.
+                    Donec sed odio dui. Donec ullamcorper nulla non metus auctor
+                    fringilla.
                     <br />
                     <br />
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    Cras mattis consectetur purus sit amet fermentum. Cras justo
+                    odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                    risus, porta ac consectetur ac, vestibulum at eros.
                     <br />
                     <br />
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    Praesent commodo cursus magna, vel scelerisque nisl
+                    consectetur et. Vivamus sagittis lacus vel augue laoreet
+                    rutrum faucibus dolor auctor.
                     <br />
                     <br />
-                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                    Aenean lacinia bibendum nulla sed consectetur. Praesent
+                    commodo cursus magna, vel scelerisque nisl consectetur et.
+                    Donec sed odio dui. Donec ullamcorper nulla non metus auctor
+                    fringilla.
                     <br />
                     <br />
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    Cras mattis consectetur purus sit amet fermentum. Cras justo
+                    odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                    risus, porta ac consectetur ac, vestibulum at eros.
                     <br />
                     <br />
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    Praesent commodo cursus magna, vel scelerisque nisl
+                    consectetur et. Vivamus sagittis lacus vel augue laoreet
+                    rutrum faucibus dolor auctor.
                     <br />
                     <br />
-                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                    Aenean lacinia bibendum nulla sed consectetur. Praesent
+                    commodo cursus magna, vel scelerisque nisl consectetur et.
+                    Donec sed odio dui. Donec ullamcorper nulla non metus auctor
+                    fringilla.
                     <br />
                     <br />
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    Cras mattis consectetur purus sit amet fermentum. Cras justo
+                    odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                    risus, porta ac consectetur ac, vestibulum at eros.
                     <br />
                     <br />
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    Praesent commodo cursus magna, vel scelerisque nisl
+                    consectetur et. Vivamus sagittis lacus vel augue laoreet
+                    rutrum faucibus dolor auctor.
                     <br />
                     <br />
-                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                    Aenean lacinia bibendum nulla sed consectetur. Praesent
+                    commodo cursus magna, vel scelerisque nisl consectetur et.
+                    Donec sed odio dui. Donec ullamcorper nulla non metus auctor
+                    fringilla.
                     <br />
                     <br />
-                  </p>;
+                  </p>
+                );
               }
-              return <p>
-                  Woohoo, stai leggendo questo testo in una modale!
-                </p>;
+              return <p>Woohoo, stai leggendo questo testo in una modale!</p>;
             })()}
           </ModalBody>
           <ModalFooter>
@@ -123,7 +173,8 @@ class ModalExample extends React.Component {
             </Button>
           </ModalFooter>
         </Modal>
-      </div>;
+      </div>
+    );
   }
 }
 

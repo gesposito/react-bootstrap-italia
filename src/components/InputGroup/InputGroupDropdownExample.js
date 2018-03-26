@@ -16,7 +16,7 @@ class InputGroupDropdownExample extends React.Component {
 
     this.state = {
       dropdownOpen: false,
-      splitButtonOpen: false,
+      splitButtonOpen: false
     };
 
     this.toggleDropDown = this.toggleDropDown.bind(this);
@@ -37,9 +37,14 @@ class InputGroupDropdownExample extends React.Component {
 
   render() {
     const { split } = this.props;
-    return <div>
+    return (
+      <div>
         <InputGroup className="mb-3">
-          <InputGroupButtonDropdown addonType="prepend" isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
+          <InputGroupButtonDropdown
+            addonType="prepend"
+            isOpen={this.state.dropdownOpen}
+            toggle={this.toggleDropDown}
+          >
             <DropdownToggle caret color="primary">
               Dropdown
             </DropdownToggle>
@@ -56,20 +61,26 @@ class InputGroupDropdownExample extends React.Component {
 
         <InputGroup>
           <Input type="text" />
-          <InputGroupButtonDropdown addonType="append" isOpen={this.state.splitButtonOpen} toggle={this.toggleSplit}>
+          <InputGroupButtonDropdown
+            addonType="append"
+            isOpen={this.state.splitButtonOpen}
+            toggle={this.toggleSplit}
+          >
             {(() => {
               if (split) {
-                return <div>
-                    <Button color="primary">
-                      Action
-                    </Button>
+                return (
+                  <div>
+                    <Button color="primary">Action</Button>
                     <DropdownToggle split color="primary" />
-                  </div>;
+                  </div>
+                );
               }
 
-              return <DropdownToggle caret color="primary">
+              return (
+                <DropdownToggle caret color="primary">
                   Dropdown
-                </DropdownToggle>;
+                </DropdownToggle>
+              );
             })()}
             <DropdownMenu>
               <DropdownItem header>Header</DropdownItem>
@@ -80,7 +91,8 @@ class InputGroupDropdownExample extends React.Component {
             </DropdownMenu>
           </InputGroupButtonDropdown>
         </InputGroup>
-      </div>;
+      </div>
+    );
   }
 }
 

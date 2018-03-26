@@ -23,7 +23,8 @@ class DropdownAlignmentExample extends React.Component {
   }
 
   render() {
-    return <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+    return (
+      <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>Dropdown allineato a destra</DropdownToggle>
         <DropdownMenu right>
           <DropdownItem header>Header</DropdownItem>
@@ -31,7 +32,8 @@ class DropdownAlignmentExample extends React.Component {
           <DropdownItem>Azione 2</DropdownItem>
           <DropdownItem>Azione 3</DropdownItem>
         </DropdownMenu>
-      </Dropdown>;
+      </Dropdown>
+    );
   }
 }
 

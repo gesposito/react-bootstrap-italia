@@ -14,7 +14,7 @@ class DropdownSizingExample extends React.Component {
     this.state = {
       dropdownOpen1: false,
       dropdownOpen2: false,
-      dropdownOpen3: false,
+      dropdownOpen3: false
     };
   }
 
@@ -25,28 +25,46 @@ class DropdownSizingExample extends React.Component {
   }
 
   render() {
-    const DropDownItems = <div>
+    const DropDownItems = (
+      <div>
         <DropdownItem>Azione 1</DropdownItem>
         <DropdownItem>Azione 2</DropdownItem>
         <DropdownItem>Azione 3</DropdownItem>
-      </div>;
+      </div>
+    );
 
-    return <div>
-        <Dropdown className="mt-0" isOpen={this.state.dropdownOpen1} size="lg" toggle={() => this.toggle(1)}>
+    return (
+      <div>
+        <Dropdown
+          className="mt-0"
+          isOpen={this.state.dropdownOpen1}
+          size="lg"
+          toggle={() => this.toggle(1)}
+        >
           <DropdownToggle caret>Dropdown</DropdownToggle>
           <DropdownMenu>{DropDownItems}</DropdownMenu>
         </Dropdown>
 
-        <Dropdown className="mt-3" isOpen={this.state.dropdownOpen2} toggle={() => this.toggle(2)}>
+        <Dropdown
+          className="mt-3"
+          isOpen={this.state.dropdownOpen2}
+          toggle={() => this.toggle(2)}
+        >
           <DropdownToggle caret>Dropdown</DropdownToggle>
           <DropdownMenu>{DropDownItems}</DropdownMenu>
         </Dropdown>
 
-        <Dropdown className="mt-3" isOpen={this.state.dropdownOpen3} size="sm" toggle={() => this.toggle(3)}>
+        <Dropdown
+          className="mt-3"
+          isOpen={this.state.dropdownOpen3}
+          size="sm"
+          toggle={() => this.toggle(3)}
+        >
           <DropdownToggle caret>Dropdown</DropdownToggle>
           <DropdownMenu>{DropDownItems}</DropdownMenu>
         </Dropdown>
-      </div>;
+      </div>
+    );
   }
 }
 

@@ -26,7 +26,8 @@ class DropdownButtonGroupExample extends React.Component {
 
   render() {
     const { color } = this.props;
-    return <ButtonGroup>
+    return (
+      <ButtonGroup>
         <Button>Bottone diviso</Button>
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle caret />
@@ -36,7 +37,8 @@ class DropdownButtonGroupExample extends React.Component {
             <DropdownItem>Azione 3</DropdownItem>
           </DropdownMenu>
         </ButtonDropdown>
-      </ButtonGroup>;
+      </ButtonGroup>
+    );
   }
 }
 

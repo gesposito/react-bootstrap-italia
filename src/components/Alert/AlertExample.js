@@ -18,7 +18,11 @@ class AlertExample extends React.Component {
 
   render() {
     return (
-      <Alert color="warning" isOpen={this.state.visible} toggle={this.onDismiss}>
+      <Alert
+        color="warning"
+        isOpen={this.state.visible}
+        toggle={this.onDismiss}
+      >
         <strong>Attenzione</strong> Alcuni campi inseriti sono da controllare.
       </Alert>
     );

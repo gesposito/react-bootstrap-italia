@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Collapse,
-  Card,
-  CardBody,
-} from "reactstrap";
+import { Button, Collapse, Card, CardBody } from "reactstrap";
 
 class CollapseExample extends React.Component {
   constructor(props) {
@@ -18,8 +13,13 @@ class CollapseExample extends React.Component {
   }
 
   render() {
-    return <div>
-        <Button color="primary" onClick={this.toggle} style={{ marginBottom: "1rem" }}>
+    return (
+      <div>
+        <Button
+          color="primary"
+          onClick={this.toggle}
+          style={{ marginBottom: "1rem" }}
+        >
           Toggle
         </Button>
         <Collapse isOpen={this.state.collapse}>
@@ -27,12 +27,13 @@ class CollapseExample extends React.Component {
             <CardBody>
               Anim pariatur cliche reprehenderit, enim eiusmod high life
               accusamus terry richardson ad squid. Nihil anim keffiyeh
-              helvetica, craft beer labore wes anderson cred nesciunt
-              sapiente ea proident.
+              helvetica, craft beer labore wes anderson cred nesciunt sapiente
+              ea proident.
             </CardBody>
           </Card>
         </Collapse>
-      </div>;
+      </div>
+    );
   }
 }
 

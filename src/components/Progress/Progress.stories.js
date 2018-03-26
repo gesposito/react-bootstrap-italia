@@ -32,4 +32,3 @@ storiesOf("Componenti/Progress", module)
       <Progress color="danger" value="100" className="mt-3" />
     </div>
   ));
-  

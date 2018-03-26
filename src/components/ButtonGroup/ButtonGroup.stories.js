@@ -3,11 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 
-import {
-  ButtonToolbar,
-  ButtonGroup,
-  Button
-} from "reactstrap";
+import { ButtonToolbar, ButtonGroup, Button } from "reactstrap";
 
 import ButtonGroupDropdownExample from "./ButtonGroupDropdownExample";
 
@@ -74,6 +70,6 @@ storiesOf("Componenti/Button Group", module)
     </ButtonGroup>
   ));
 
-  storiesOf("Componenti/Button Group/Nesting", module)
-    .addDecorator((story, context) => withInfo("")(story)(context))
-    .add("Esempi", () => <ButtonGroupDropdownExample />);
+storiesOf("Componenti/Button Group/Nesting", module)
+  .addDecorator((story, context) => withInfo("")(story)(context))
+  .add("Esempi", () => <ButtonGroupDropdownExample />);

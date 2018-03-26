@@ -12,7 +12,7 @@ class DropdownFullSizingExample extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      dropdownOpen: false,
+      dropdownOpen: false
     };
   }
 
@@ -23,14 +23,21 @@ class DropdownFullSizingExample extends React.Component {
   }
 
   render() {
-    return <Dropdown className="mt-0" isOpen={this.state.dropdownOpen} size="lg" toggle={() => this.toggle()}>
+    return (
+      <Dropdown
+        className="mt-0"
+        isOpen={this.state.dropdownOpen}
+        size="lg"
+        toggle={() => this.toggle()}
+      >
         <DropdownToggle caret>Dropdown</DropdownToggle>
         <DropdownMenu className="full-width">
           <DropdownItem>Azione 1</DropdownItem>
           <DropdownItem>Azione 2</DropdownItem>
           <DropdownItem>Azione 3</DropdownItem>
         </DropdownMenu>
-      </Dropdown>;
+      </Dropdown>
+    );
   }
 }
 

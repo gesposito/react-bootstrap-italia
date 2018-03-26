@@ -14,7 +14,7 @@ class ModalGridExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false,
+      modal: false
     };
 
     this.toggle = this.toggle.bind(this);
@@ -27,7 +27,8 @@ class ModalGridExample extends React.Component {
   }
 
   render() {
-    return <div>
+    return (
+      <div>
         <Button color="primary" onClick={this.toggle}>
           Lancia la demo della modale
         </Button>
@@ -80,7 +81,8 @@ class ModalGridExample extends React.Component {
             </Button>
           </ModalFooter>
         </Modal>
-      </div>;
+      </div>
+    );
   }
 }
 

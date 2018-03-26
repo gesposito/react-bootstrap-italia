@@ -2,7 +2,7 @@ import React from "react";
 import {
   ButtonDropdown,
   DropdownToggle,
-  DropdownMenu, 
+  DropdownMenu,
   DropdownItem
 } from "reactstrap";
 
@@ -24,7 +24,8 @@ class DropdownButtonExample extends React.Component {
 
   render() {
     const { color } = this.props;
-    return <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+    return (
+      <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret color={color}>
           Apri dropdown
         </DropdownToggle>
@@ -33,7 +34,8 @@ class DropdownButtonExample extends React.Component {
           <DropdownItem>Azione 2</DropdownItem>
           <DropdownItem>Azione 3</DropdownItem>
         </DropdownMenu>
-      </ButtonDropdown>;
+      </ButtonDropdown>
+    );
   }
 }
 

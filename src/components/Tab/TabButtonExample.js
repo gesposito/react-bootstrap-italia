@@ -1,5 +1,14 @@
 import React from "react";
-import { Nav, NavItem, NavLink, TabContent, TabPane, Container, Row, Col } from "reactstrap";
+import {
+  Nav,
+  NavItem,
+  NavLink,
+  TabContent,
+  TabPane,
+  Container,
+  Row,
+  Col
+} from "reactstrap";
 
 class TabButtonExample extends React.Component {
   constructor(props) {
@@ -21,28 +30,41 @@ class TabButtonExample extends React.Component {
 
   render() {
     const { vertical } = this.props;
-    return <Container className="m-3">
+    return (
+      <Container className="m-3">
         <Row>
           <Col sm="3">
             <Nav pills className="mb-3" vertical={vertical}>
               <NavItem>
-                <NavLink href="#" active={this.state.activeTab === "1"} onClick={() => {
+                <NavLink
+                  href="#"
+                  active={this.state.activeTab === "1"}
+                  onClick={() => {
                     this.toggle("1");
-                  }}>
+                  }}
+                >
                   Tab 1
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#" active={this.state.activeTab === "2"} onClick={() => {
+                <NavLink
+                  href="#"
+                  active={this.state.activeTab === "2"}
+                  onClick={() => {
                     this.toggle("2");
-                  }}>
+                  }}
+                >
                   Tab 2
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#" active={this.state.activeTab === "3"} onClick={() => {
+                <NavLink
+                  href="#"
+                  active={this.state.activeTab === "3"}
+                  onClick={() => {
                     this.toggle("3");
-                  }}>
+                  }}
+                >
                   Tab 3
                 </NavLink>
               </NavItem>
@@ -51,18 +73,39 @@ class TabButtonExample extends React.Component {
           <Col sm="9">
             <TabContent activeTab={this.state.activeTab}>
               <TabPane tabId="1" className="p-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
               </TabPane>
               <TabPane tabId="2" className="p-3">
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit anim id est laborum. Lorem ipsum
+                dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur.
               </TabPane>
               <TabPane tabId="3" className="p-3">
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est
+                laborum. Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua.
               </TabPane>
             </TabContent>
           </Col>
         </Row>
-      </Container>;
+      </Container>
+    );
   }
 }
 

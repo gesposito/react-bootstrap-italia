@@ -36,4 +36,3 @@ storiesOf("Componenti/Hero", module)
       </Container>
     </Jumbotron>
   ));
-

@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 
-import CarouselExample from './CarouselExample';
+import CarouselExample from "./CarouselExample";
 
 storiesOf("Componenti/Carousel", module)
   .addDecorator((story, context) => withInfo("")(story)(context))

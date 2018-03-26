@@ -10,7 +10,7 @@ import {
   Input,
   FormGroup,
   Label,
-  Button,
+  Button
 } from "reactstrap";
 
 import InputGroupDropdownExample from "./InputGroupDropdownExample";
@@ -151,9 +151,5 @@ storiesOf("Componenti/Input Group", module)
       </InputGroup>
     </div>
   ))
-  .add("Bottoni con dropdown", () => (
-    <InputGroupDropdownExample />
-  ))
-  .add("Pulsanti segmentati", () => (
-    <InputGroupDropdownExample split />
-  ));
+  .add("Bottoni con dropdown", () => <InputGroupDropdownExample />)
+  .add("Pulsanti segmentati", () => <InputGroupDropdownExample split />);

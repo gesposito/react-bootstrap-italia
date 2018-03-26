@@ -30,9 +30,7 @@ class ButtonGroupDropdownExample extends React.Component {
         <Button>1</Button>
         <Button>2</Button>
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle caret>
-            Dropdown
-          </DropdownToggle>
+          <DropdownToggle caret>Dropdown</DropdownToggle>
           <DropdownMenu>
             <DropdownItem>Dropdown Link</DropdownItem>
             <DropdownItem>Dropdown Link</DropdownItem>
