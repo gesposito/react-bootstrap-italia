@@ -11,25 +11,18 @@ import {
 } from "reactstrap";
 
 class InputGroupDropdownExample extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      dropdownOpen: false,
-      splitButtonOpen: false
-    };
-
-    this.toggleDropDown = this.toggleDropDown.bind(this);
-    this.toggleSplit = this.toggleSplit.bind(this);
+  state = {
+    dropdownOpen: false,
+    splitButtonOpen: false
   }
 
-  toggleDropDown() {
+  toggleDropDown = () => {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
     });
   }
 
-  toggleSplit() {
+  toggleSplit = () => {
     this.setState({
       splitButtonOpen: !this.state.splitButtonOpen
     });

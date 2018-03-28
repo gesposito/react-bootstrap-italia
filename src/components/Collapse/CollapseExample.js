@@ -2,13 +2,9 @@ import React from "react";
 import { Button, Collapse, Card, CardBody } from "reactstrap";
 
 class CollapseExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false };
-  }
+  state = { collapse: false }
 
-  toggle() {
+  toggle = () => {
     this.setState({ collapse: !this.state.collapse });
   }
 

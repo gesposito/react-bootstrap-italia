@@ -7,18 +7,13 @@ import {
 } from "reactstrap";
 
 class DropdownSizingExample extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      dropdownOpen1: false,
-      dropdownOpen2: false,
-      dropdownOpen3: false
-    };
+  state = {
+    dropdownOpen1: false,
+    dropdownOpen2: false,
+    dropdownOpen3: false
   }
 
-  toggle(id) {
+  toggle = (id) => {
     this.setState({
       [`dropdownOpen${id}`]: !this.state[`dropdownOpen${id}`]
     });

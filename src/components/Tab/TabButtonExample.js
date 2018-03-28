@@ -11,16 +11,11 @@ import {
 } from "reactstrap";
 
 class TabButtonExample extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      activeTab: "1"
-    };
+  state = {
+    activeTab: "1"
   }
-
-  toggle(tab) {
+  
+  toggle = (tab) => {
     if (this.state.activeTab !== tab) {
       this.setState({
         activeTab: tab
@@ -33,7 +28,7 @@ class TabButtonExample extends React.Component {
     return (
       <Container className="m-3">
         <Row>
-          <Col sm="3">
+          <Col sm={vertical ? "3" : "12"}>
             <Nav pills className="mb-3" vertical={vertical}>
               <NavItem>
                 <NavLink
@@ -70,7 +65,7 @@ class TabButtonExample extends React.Component {
               </NavItem>
             </Nav>
           </Col>
-          <Col sm="9">
+          <Col sm={vertical ? "9" : "12"}>
             <TabContent activeTab={this.state.activeTab}>
               <TabPane tabId="1" className="p-3">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

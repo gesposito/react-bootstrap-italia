@@ -10,7 +10,7 @@ storiesOf("Componenti/Radio Button", module)
   .add("Esempi", () => (
     <FormGroup>
       <FormGroup check>
-        <Input name="gruppo1" type="radio" id="radio1" checked />
+        <Input name="gruppo1" type="radio" id="radio1" defaultChecked />
         <Label check for="radio1">
           Opzione 1
         </Label>
@@ -34,7 +34,7 @@ storiesOf("Componenti/Radio Button", module)
   .add("Inline", () => (
     <FormGroup>
       <FormGroup check inline>
-        <Input name="gruppo1" type="radio" id="radio1" checked />
+        <Input name="gruppo1" type="radio" id="radio1" defaultChecked />
         <Label check for="radio1">
           Opzione 1
         </Label>
@@ -58,7 +58,7 @@ storiesOf("Componenti/Radio Button", module)
   .add("Disabilitati", () => (
     <FormGroup>
       <FormGroup check>
-        <Input name="gruppo1" type="radio" id="radio1" checked disabled />
+        <Input name="gruppo1" type="radio" id="radio1" defaultChecked disabled />
         <Label check for="radio1">
           Opzione 1
         </Label>

@@ -2,24 +2,18 @@ import React from "react";
 import { Button, Collapse, Card, CardBody } from "reactstrap";
 
 class CollapseAccordionExample extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.defaultState = {
-      collapseOpen1: false,
-      collapseOpen2: false,
-      collapseOpen3: false
-    };
-
-    this.state = {
-      ...this.defaultState,
-      collapseOpen1: true
-    };
-
-    this.toggle = this.toggle.bind(this);
+  defaultState = {
+    collapseOpen1: false,
+    collapseOpen2: false,
+    collapseOpen3: false
   }
 
-  toggle(id) {
+  state = {
+    ...this.defaultState,
+    collapseOpen1: true
+  }
+
+  toggle = (id) => {
     this.setState({
       ...this.defaultState,
       [`collapseOpen${id}`]: !this.state[`collapseOpen${id}`]

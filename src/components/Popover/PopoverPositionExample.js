@@ -2,16 +2,11 @@ import React from "react";
 import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
 
 class PopoverItem extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      popoverOpen: false
-    };
+  state = {
+    popoverOpen: false
   }
-
-  toggle() {
+  
+  toggle = () => {
     this.setState({
       popoverOpen: !this.state.popoverOpen
     });
@@ -44,17 +39,13 @@ class PopoverItem extends React.Component {
 }
 
 class PopoverPositionExample extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      popovers: [
-        { placement: "top", text: "in alto" },
-        { placement: "bottom", text: "in basso" },
-        { placement: "left", text: "a sinistra" },
-        { placement: "right", text: "a destra" }
-      ]
-    };
+  state = {
+    popovers: [
+      { placement: "top", text: "in alto" },
+      { placement: "bottom", text: "in basso" },
+      { placement: "left", text: "a sinistra" },
+      { placement: "right", text: "a destra" }
+    ]
   }
 
   render() {

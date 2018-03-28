@@ -7,18 +7,13 @@ import {
 } from "reactstrap";
 
 class DropdownDirectionsExample extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      btnDropUp: false,
-      btnDropLeft: false,
-      btnDropRight: false
-    };
+  state = {
+    btnDropUp: false,
+    btnDropLeft: false,
+    btnDropRight: false
   }
 
-  toggle(id) {
+  toggle = (id) => {
     this.setState({
       [`btnDrop${id}`]: !this.state[`btnDrop${id}`]
     });

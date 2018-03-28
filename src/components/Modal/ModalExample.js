@@ -2,22 +2,17 @@ import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 class ModalExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-      size: ""
-    };
+  state = {
+    modal: false,
+    size: ""
+  };
 
-    this.toggle = this.toggle.bind(this);
-  }
-
-  toggle(size) {
+  toggle = (size = "") => {
     this.setState({
       modal: !this.state.modal,
       size
     });
-  }
+  };
 
   render() {
     const { long, centered, fade, sizing } = this.props;
@@ -43,7 +38,7 @@ class ModalExample extends React.Component {
           }
 
           return (
-            <Button color="primary" onClick={this.toggle}>
+            <Button color="primary" onClick={() => this.toggle()}>
               Lancia la demo della modale
             </Button>
           );

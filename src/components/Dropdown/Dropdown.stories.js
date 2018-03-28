@@ -30,7 +30,7 @@ storiesOf("Componenti/Dropdown", module)
   .add("Allineamento orizzontale", () => <DropdownAlignmentExample />)
   .add("Voci di menù attive", () => (
     <div style={{ paddingBottom: 150 }}>
-      <Dropdown isOpen>
+      <Dropdown isOpen toggle={() => {}}>
         <DropdownToggle caret>Dropdown</DropdownToggle>
         <DropdownMenu>
           <DropdownItem>Azione 1</DropdownItem>
@@ -42,7 +42,7 @@ storiesOf("Componenti/Dropdown", module)
   ))
   .add("Voci di menù disabilitate", () => (
     <div style={{ paddingBottom: 150 }}>
-      <Dropdown isOpen>
+      <Dropdown isOpen toggle={() => {}}>
         <DropdownToggle caret>Dropdown</DropdownToggle>
         <DropdownMenu>
           <DropdownItem>Azione 1</DropdownItem>

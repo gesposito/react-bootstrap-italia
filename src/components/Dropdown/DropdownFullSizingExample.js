@@ -7,16 +7,11 @@ import {
 } from "reactstrap";
 
 class DropdownFullSizingExample extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      dropdownOpen: false
-    };
+  state = {
+    dropdownOpen: false
   }
-
-  toggle(id) {
+  
+  toggle = (id) => {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
     });

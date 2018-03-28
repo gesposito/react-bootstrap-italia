@@ -10,20 +10,13 @@ storiesOf("Componenti/Tooltip", module)
   .add("Esempi", () => (
     <div className="bd-example tooltip-demo">
       <p className="muted">
-        Ecco un{" "}
-        <a href="#" id="Example1">
-          bianco scenario
-        </a>
+        Ecco un <a href="#" id="Example1">bianco scenario</a>
         <br />
         per tratteggiarvi l’accompagnamento
         <br />
         degli oggetti di sfondo che pur vivono.
         <br />
-        Non ne sarò{" "}
-        <a href="#" id="Example2">
-          l’artefice
-        </a>
-        impaziente.
+        Non ne sarò <a href="#" id="Example2">l’artefice</a> impaziente.
         <br />
         Berrò alle coppe della nostalgia,
         <br />

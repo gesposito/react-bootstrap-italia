@@ -2,17 +2,11 @@ import React from "react";
 import { Alert } from "reactstrap";
 
 class AlertExample extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    visible: true
+  };
 
-    this.state = {
-      visible: true
-    };
-
-    this.onDismiss = this.onDismiss.bind(this);
-  }
-
-  onDismiss() {
+  onDismiss = () => {
     this.setState({ visible: false });
   }
 

@@ -29,19 +29,9 @@ const items = [
 ];
 
 class CarouselExample extends React.Component {
-  constructor(props) {
-    super(props);
+  state = { activeIndex: 0 };
 
-    this.state = { activeIndex: 0 };
-
-    this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
-    this.goToIndex = this.goToIndex.bind(this);
-    this.onExiting = this.onExiting.bind(this);
-    this.onExited = this.onExited.bind(this);
-  }
-
-  next() {
+  next = () => {
     if (this.animating) return;
 
     const nextIndex =
@@ -49,9 +39,9 @@ class CarouselExample extends React.Component {
         ? 0
         : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
-  }
+  };
 
-  previous() {
+  previous = () => {
     if (this.animating) return;
 
     const nextIndex =
@@ -59,20 +49,20 @@ class CarouselExample extends React.Component {
         ? items.length - 1
         : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
-  }
+  };
 
-  goToIndex(newIndex) {
+  goToIndex = newIndex => {
     if (this.animating) return;
     this.setState({ activeIndex: newIndex });
-  }
+  };
 
-  onExiting() {
+  onExiting = () => {
     this.animating = true;
-  }
+  };
 
-  onExited() {
+  onExited = () => {
     this.animating = false;
-  }
+  };
 
   render() {
     const { activeIndex } = this.state;
@@ -105,6 +95,17 @@ class CarouselExample extends React.Component {
               onExited={this.onExited}
             >
               <img src={item.src} alt={item.altText} />
+              {(() => {
+                if (captions) {
+                  return (
+                    <CarouselCaption
+                      captionText={item.caption}
+                      captionHeader={item.caption}
+                    />
+                  );
+                }
+                return null;
+              })()}
             </CarouselItem>
           );
         })}

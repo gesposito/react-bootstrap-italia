@@ -13,24 +13,18 @@ import {
 } from "reactstrap";
 
 class PopoverExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-      popoverOpen: false
-    };
-
-    this.toggle = this.toggle.bind(this);
-    this.togglePopover = this.togglePopover.bind(this);
+  state = {
+    modal: false,
+    popoverOpen: false
   }
-
-  toggle() {
+  
+  toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
   }
 
-  togglePopover() {
+  togglePopover = () => {
     this.setState({
       popoverOpen: !this.state.popoverOpen
     });

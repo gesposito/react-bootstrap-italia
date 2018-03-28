@@ -11,16 +11,11 @@ import {
 } from "reactstrap";
 
 class ModalGridExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false
-    };
-
-    this.toggle = this.toggle.bind(this);
+  state = {
+    modal: false
   }
 
-  toggle() {
+  toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
