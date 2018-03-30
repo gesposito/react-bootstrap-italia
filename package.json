@@ -30,7 +30,7 @@
     "prettier": "1.11.1"
   },
   "dependencies": {
-    "bootstrap-italia": "git+https://github.com/italia/bootstrap-italia.git",
+    "bootstrap-italia": "git+https://github.com/italia/bootstrap-italia.git#0.3.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-select": "^2.0.0-alpha.8",
