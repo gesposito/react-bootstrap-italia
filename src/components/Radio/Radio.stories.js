@@ -3,12 +3,14 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 
-import { FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
+
+import RadioGroupsExample from "./RadioGroupsExample";
 
 storiesOf("Componenti/Radio Button", module)
   .addDecorator((story, context) => withInfo("")(story)(context))
   .add("Esempi", () => (
-    <FormGroup>
+    <Form className="m-3">
       <FormGroup check>
         <Input name="gruppo1" type="radio" id="radio1" defaultChecked />
         <Label check for="radio1">
@@ -29,10 +31,10 @@ storiesOf("Componenti/Radio Button", module)
           Opzione 3
         </Label>
       </FormGroup>
-    </FormGroup>
+    </Form>
   ))
   .add("Inline", () => (
-    <FormGroup>
+    <Form className="m-3">
       <FormGroup check inline>
         <Input name="gruppo1" type="radio" id="radio1" defaultChecked />
         <Label check for="radio1">
@@ -53,12 +55,18 @@ storiesOf("Componenti/Radio Button", module)
           Opzione 3
         </Label>
       </FormGroup>
-    </FormGroup>
+    </Form>
   ))
   .add("Disabilitati", () => (
-    <FormGroup>
+    <Form className="m-3">
       <FormGroup check>
-        <Input name="gruppo1" type="radio" id="radio1" defaultChecked disabled />
+        <Input
+          name="gruppo1"
+          type="radio"
+          id="radio1"
+          defaultChecked
+          disabled
+        />
         <Label check for="radio1">
           Opzione 1
         </Label>
@@ -77,5 +85,6 @@ storiesOf("Componenti/Radio Button", module)
           Opzione 3
         </Label>
       </FormGroup>
-    </FormGroup>
-  ));
+    </Form>
+  ))
+  .add("Gruppi di radio buttons", () => <RadioGroupsExample />);
