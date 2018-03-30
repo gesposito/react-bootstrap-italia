@@ -20,6 +20,7 @@ import FormGroupWithActive from "./FormGroupWithActive";
 import FormInputFileExample from "./FormInputFileExample";
 import FormGroupsExample from "./FormGroupsExample";
 import FormSizingExample from "./FormSizingExample";
+import FormInputPasswordExample from "./FormInputPasswordExample";
 
 import SelectExample from "../Select/SelectExample";
 import Select from "../Select/Select";
@@ -53,35 +54,7 @@ storiesOf("Componenti/Form", module)
       </FormGroupWithActive>
     </Form>
   ))
-  .add("Input password", () => (
-    <Form>
-      <FormGroupWithActive>
-        <Input type="password" id="exampleInputPassword" />
-        <Label for="exampleInputPassword">Password</Label>
-      </FormGroupWithActive>
-      <FormGroupWithActive>
-        <i className="ico-prefix it-lock" />
-        <Input
-          type="password"
-          id="exampleInputPassword3"
-          placeholder="Password"
-        />
-        <FormText id="infoPassword" color="muted">
-          inserisci almeno 8 caratteri e una lettera maiuscola
-        </FormText>
-      </FormGroupWithActive>
-      <FormGroupWithActive>
-        <Input
-          type="password"
-          className="form-control form-password"
-          id="exampleInputPassword2"
-        />
-        <Label for="exampleInputPassword2">
-          Password con strength meter (TBD)
-        </Label>
-      </FormGroupWithActive>
-    </Form>
-  ))
+  .add("Input password", () => <FormInputPasswordExample />)
   .add("Input file", () => <FormInputFileExample />)
   .add("Input autocomplete", () => <div>TBD</div>)
   .add("Select", () => <SelectExample />)
