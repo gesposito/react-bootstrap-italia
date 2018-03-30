@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-import { FormGroup, Input } from "reactstrap";
+import { FormGroup, Input, Label } from "reactstrap";
 
 class FormGroupWithActive extends Component {
   state = {
-    active: this.props.active
+    active: this.props.active || false
   };
 
   onFocus = (callback, active = true) => {
@@ -31,16 +31,18 @@ class FormGroupWithActive extends Component {
 
   render() {
     const { active } = this.state;
-    const { children, className } = this.props;
+    const { children, className, col, ...rest } = this.props;
 
-    return (
-      <FormGroup
-        {...this.props}
-        className={`${className} ${active ? "active" : ""}`}
-      >
-        {React.Children.map(children, child => {
-          if (child.type === Input) {
-            const { onFocus, onBlur } = child.props;
+    const renderChildren = () => {
+      let isLabelActive = false;
+      return React.Children.map(children, child => {
+        const { onFocus, onBlur, className } = child.props;
+
+        switch (child.type) {
+          case Input:
+            if (child.props.value) {
+              isLabelActive = true;
+            }
 
             return React.cloneElement(child, {
               ...child.props,
@@ -51,9 +53,33 @@ class FormGroupWithActive extends Component {
                 this.onBlur(onBlur);
               }
             });
-          }
-          return child;
-        })}
+            break;
+          case Label:
+            const classNames = isLabelActive
+              ? [className, "active"].join(" ")
+              : className;
+
+            return React.cloneElement(child, {
+              ...child.props,
+              className: classNames
+            });
+            break;
+          default:
+            return child;
+            break;
+        }
+      });
+    };
+
+    const classNames = [
+      className,
+      active ? "active" : "",
+      col ? "col" : ""
+    ].join(" ");
+
+    return (
+      <FormGroup {...rest} className={classNames}>
+        {renderChildren()}
       </FormGroup>
     );
   }
