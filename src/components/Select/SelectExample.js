@@ -9,6 +9,12 @@ const defaultOptions = [
   { value: "option-3", label: "Opzione 3" }
 ];
 
+const iconOptions = [
+  { value: "video-1", label: "Video 1" },
+  { value: "video-2", label: "Video 2" },
+  { value: "video-3", label: "Video 3" }
+];
+
 const multiOptions = [
   { value: "1", label: "Abruzzo" },
   { value: "2", label: "Basilicata" },
@@ -42,11 +48,6 @@ export const groupTwoOptions = [
   { value: "option-4", label: "Opzione 4" }
 ];
 
-// let bigOptions = [];
-// for (let i = 0; i < 10000; i++) {
-// 	bigOptions = bigOptions.concat(colourOptions);
-// }
-
 export const groupedOptions = [
   {
     label: "Gruppo 1",
@@ -60,17 +61,23 @@ export const groupedOptions = [
 
 class SelectExample extends React.Component {
   render() {
-    const { multi, search, group } = this.props;
-
+    const { multi, search, group, icon } = this.props;
     let options = defaultOptions;
     if (multi || search) {
       options = multiOptions;
-    }
-    if (group) {
+    } else if (group) {
       options = groupedOptions;
+    } else if (icon) {
+      options = iconOptions;
     }
+
     return (
       <FormGroup className="m-3">
+        {(() => {
+          if (icon) {
+            return <i className="ico-prefix it-youtube" />;
+          }
+        })()}
         <Select
           options={options}
           placeholder={

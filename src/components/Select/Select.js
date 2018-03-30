@@ -7,9 +7,12 @@ import Select from "react-select";
 
 const SelectContainer = props => {
   const { children, innerProps, selectProps } = props;
+  const { menuIsOpen, bsSize } = selectProps;
+
   const classNames = [
     "select-container select-wrapper custom-select",
-    selectProps.menuIsOpen ? "show" : ""
+    menuIsOpen ? "show" : "",
+    bsSize ? `form-control-${bsSize}` : ""
   ].join(" ");
 
   return (
