@@ -3,18 +3,16 @@ import ReactDOM from "react-dom";
 
 // Extracted from https://github.com/roderickhsiao/react-in-viewport due to `componentDidUpdate` not working
 class InViewport extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.observer = null;
-    this.node = null;
-    this.state = {
-      inViewport: false
-    };
-    this.intersected = false;
-    this.handleIntersection = this.handleIntersection.bind(this);
-    this.initIntersectionObserver = this.initIntersectionObserver.bind(this);
-    this.setRef = this.setRef.bind(this);
-    this.setInnerRef = this.setInnerRef.bind(this);
+  state = {
+    inViewport: false
+  };
+
+  observer = null;
+  node = null;
+  intersected = false;
+
+  componentWillUnmount() {
+    this.stopObserver(this.node, this.observer);
   }
 
   componentDidMount() {
@@ -23,18 +21,20 @@ class InViewport extends React.PureComponent {
     this.startObserver(this.node, this.observer);
   }
 
+  /* taken out from original HoC
   componentDidUpdate(prevProps, prevState) {
     // reset observer on update, to fix race condition that when observer init,
     // the element is not in viewport, such as in animation
-    // if (!this.intersected && !prevState.inViewport) {
-    //   if (this.observer && this.node) {
-    //     this.observer.unobserve(this.node);
-    //     this.observer.observe(this.node);
-    //   }
-    // }
+    if (!this.intersected && !prevState.inViewport) {
+      if (this.observer && this.node) {
+        this.observer.unobserve(this.node);
+        this.observer.observe(this.node);
+      }
+    }
   }
+  */
 
-  initIntersectionObserver() {
+  initIntersectionObserver = () => {
     let options = {};
     if (!this.observer) {
       this.observer = new IntersectionObserver(
@@ -42,11 +42,7 @@ class InViewport extends React.PureComponent {
         options
       );
     }
-  }
-
-  componentWillUnmount() {
-    this.stopObserver(this.node, this.observer);
-  }
+  };
 
   startObserver(node, observer) {
     if (node && observer) {
@@ -62,7 +58,7 @@ class InViewport extends React.PureComponent {
     }
   }
 
-  handleIntersection(entries) {
+  handleIntersection = entries => {
     let config = {};
     const { onEnterViewport, onLeaveViewport } = this.props;
     const entry = entries[0] || {};
@@ -91,20 +87,20 @@ class InViewport extends React.PureComponent {
         inViewport
       });
     }
-  }
+  };
 
-  setRef(node) {
+  setRef = node => {
     this.node = ReactDOM.findDOMNode(node);
-  }
+  };
 
-  setInnerRef(node) {
+  setInnerRef = node => {
     if (node && !this.node) {
       // handle stateless
       this.node = ReactDOM.findDOMNode(node);
       this.initIntersectionObserver();
       this.startObserver(this.node, this.observer);
     }
-  }
+  };
 
   render() {
     const {
@@ -118,7 +114,6 @@ class InViewport extends React.PureComponent {
     // const refProps = isStateless(children)
     //   ? { innerRef: this.setInnerRef }
     //   : { ref: this.setRef };
-    // const refProps = { innerRef: this.setInnerRef };
     const refProps = { ref: this.setRef };
     return (
       <div {...others} {...refProps}>
