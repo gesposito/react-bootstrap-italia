@@ -34,7 +34,7 @@ class FormGroupsExample extends Component {
             <Label for="inputEmail4">Email</Label>
           </FormGroupWithActive>
           <FormGroupWithActive className="col-md-6">
-            <Input type="password" id="inputPassword4" />
+            <PasswordInput id="inputPassword4" />
             <Label for="inputPassword4">Password</Label>
           </FormGroupWithActive>
         </Row>

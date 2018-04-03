@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import { Form, Label, Input, FormText } from "reactstrap";
 
+import PasswordInput from "./PasswordInput";
 import FormGroupWithActive from "./FormGroupWithActive";
 import PasswordMeter from "./PasswordMeter";
 
@@ -14,7 +15,6 @@ class FormInputPasswordExample extends Component {
 
   onPasswordChange = ({ target }) => {
     const passwordScore = testStrength(target.value) * 20;
-    console.log(passwordScore);
 
     this.setState({
       passwordScore
@@ -26,23 +26,22 @@ class FormInputPasswordExample extends Component {
     return (
       <Form>
         <FormGroupWithActive>
-          <Input type="password" id="exampleInputPassword" />
+          <Input id="input" />
+          <Label for="input">Password</Label>
+        </FormGroupWithActive>
+        <FormGroupWithActive>
+          <PasswordInput id="exampleInputPassword" />
           <Label for="exampleInputPassword">Password</Label>
         </FormGroupWithActive>
         <FormGroupWithActive>
           <i className="ico-prefix it-lock" />
-          <Input
-            type="password"
-            id="exampleInputPassword3"
-            placeholder="Password"
-          />
+          <PasswordInput id="exampleInputPassword3" placeholder="Password" />
           <FormText id="infoPassword" color="muted">
             inserisci almeno 8 caratteri e una lettera maiuscola
           </FormText>
         </FormGroupWithActive>
         <FormGroupWithActive>
-          <Input
-            type="password"
+          <PasswordInput
             className="form-control form-password"
             id="exampleInputPassword2"
             onChange={this.onPasswordChange}

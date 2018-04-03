@@ -15,6 +15,7 @@ import {
   FormText,
   Button
 } from "reactstrap";
+import PasswordInput from "./PasswordInput";
 import FormGroupWithActive from "./FormGroupWithActive";
 
 import FormInputFileExample from "./FormInputFileExample";
@@ -324,7 +325,7 @@ storiesOf("Componenti/Form/Layout", module)
     <section>
       <Form className="m-2">
         <FormGroup>
-          <Input type="password" id="inputPassword5" className="form-control" />
+          <PasswordInput id="inputPassword5" className="form-control" />
           <Label for="inputPassword5">Password</Label>
           <FormText id="passwordHelpBlock" color="muted">
             La tua password deve essere lunga 8-20 caratteri, contenere lettere
@@ -335,7 +336,7 @@ storiesOf("Componenti/Form/Layout", module)
 
       <Form inline>
         <FormGroup>
-          <Input type="password" id="inputPassword6" className="mx-sm-3" />
+          <PasswordInput id="inputPassword6" className="mx-sm-3" />
           <Label for="inputPassword6">Password</Label>
           <FormText id="passwordHelpInline" color="muted">
             Deve essere lunga 8-20 caratteri.

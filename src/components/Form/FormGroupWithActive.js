@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { FormGroup, Input, Label } from "reactstrap";
+import PasswordInput from "./PasswordInput";
 
 class FormGroupWithActive extends Component {
   state = {
@@ -40,6 +41,7 @@ class FormGroupWithActive extends Component {
 
         switch (child.type) {
           case Input:
+          case PasswordInput:
             if (child.props.value) {
               isLabelActive = true;
             }
