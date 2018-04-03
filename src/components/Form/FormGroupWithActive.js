@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import { FormGroup, Input, Label } from "reactstrap";
 import PasswordInput from "./PasswordInput";
+import Autocomplete from "../Autocomplete/Autocomplete";
 
 class FormGroupWithActive extends Component {
   state = {
@@ -42,6 +43,7 @@ class FormGroupWithActive extends Component {
         switch (child.type) {
           case Input:
           case PasswordInput:
+          case Autocomplete:
             if (child.props.value) {
               isLabelActive = true;
             }
