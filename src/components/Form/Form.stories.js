@@ -27,6 +27,7 @@ import SelectExample from "../Select/SelectExample";
 import Select from "../Select/Select";
 import CheckboxGroupsExample from "../Checkbox/CheckboxGroupsExample";
 import RadioGroupsExample from "../Radio/RadioGroupsExample";
+import AutocompleteExample from "../Autocomplete/AutocompleteExample";
 
 storiesOf("Componenti/Form", module)
   .addDecorator((story, context) => withInfo("")(story)(context))
@@ -57,7 +58,7 @@ storiesOf("Componenti/Form", module)
   ))
   .add("Input password", () => <FormInputPasswordExample />)
   .add("Input file", () => <FormInputFileExample />)
-  .add("Input autocomplete", () => <div>TBD</div>)
+  .add("Input autocomplete", () => <AutocompleteExample />)
   .add("Select", () => <SelectExample />)
   .add("Select multipla", () => <SelectExample multi />)
   .add("Select con ricerca", () => <SelectExample search />)
