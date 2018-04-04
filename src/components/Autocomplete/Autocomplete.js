@@ -119,6 +119,12 @@ class AutocompleteComponent extends Component {
     inputText: ""
   };
 
+  static defaultProps = {
+    onInputChange: null,
+    onInputClear: null,
+    onChange: null
+  };
+
   components = {
     SelectContainer,
     Control,
@@ -137,26 +143,44 @@ class AutocompleteComponent extends Component {
       return;
     }
 
-    this.setState({
-      inputText
-    });
+    this.setState(
+      {
+        inputText
+      },
+      () => {
+        this.props.onInputChange &&
+          this.props.onInputChange(inputText, { action });
+      }
+    );
   };
 
   onInputClear = () => {
-    this.setState({
-      inputText: ""
-    });
+    this.setState(
+      {
+        inputText: ""
+      },
+      () => {
+        this.props.onInputClear && this.props.onInputClear();
+      }
+    );
   };
 
   onChange = selected => {
-    this.setState({
-      inputText: selected.label
-    });
+    this.setState(
+      {
+        inputText: selected.label
+      },
+      () => {
+        this.props.onChange && this.props.onChange(selected);
+      }
+    );
   };
 
   render() {
-    const { inputText, selected } = this.state;
-    const { options, isSearchable, placeholder, value } = this.props;
+    const { inputText } = this.state;
+    const { options, placeholder, isLabelActive } = this.props;
+
+    const classNames = isLabelActive ? "active" : "";
 
     return (
       <Fragment>
@@ -165,9 +189,6 @@ class AutocompleteComponent extends Component {
           onInputChange={this.onInputChange}
           onInputClear={this.onInputClear}
           onChange={this.onChange}
-          ref={el => {
-            this.container = el;
-          }}
           placeholder={null}
           hideSelectedOptions={false}
           backspaceRemovesValue={false}
@@ -175,9 +196,10 @@ class AutocompleteComponent extends Component {
           options={options}
           components={this.components}
           inputValue={inputText}
-          value={inputText}
         />
-        <label style={{ pointerEvents: "none" }}>{placeholder}</label>
+        <label className={classNames} style={{ pointerEvents: "none" }}>
+          {placeholder}
+        </label>
       </Fragment>
     );
   }

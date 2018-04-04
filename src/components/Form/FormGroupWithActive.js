@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import { FormGroup, Input, Label } from "reactstrap";
+
 import PasswordInput from "./PasswordInput";
 import Autocomplete from "../Autocomplete/Autocomplete";
 
 class FormGroupWithActive extends Component {
   state = {
-    active: this.props.active || false
+    active: this.props.active || false,
+    value: null
   };
 
   onFocus = (callback, active = true) => {
@@ -31,49 +34,32 @@ class FormGroupWithActive extends Component {
     );
   };
 
+  onChange = (callback, event) => {
+    let value;
+    if (event && event.persist) {
+      // SyntheticEvent
+      event.persist();
+      value = event.target.value;
+    } else if (event.label) {
+      // Autocomplete
+      value = event.label;
+    }
+
+    this.setState(
+      {
+        value
+      },
+      () => {
+        callback && callback(event);
+      }
+    );
+  };
+
   render() {
-    const { active } = this.state;
+    const { active, value } = this.state;
     const { children, className, col, ...rest } = this.props;
 
-    const renderChildren = () => {
-      let isLabelActive = false;
-      return React.Children.map(children, child => {
-        const { onFocus, onBlur, className } = child.props;
-
-        switch (child.type) {
-          case Input:
-          case PasswordInput:
-          case Autocomplete:
-            if (child.props.value) {
-              isLabelActive = true;
-            }
-
-            return React.cloneElement(child, {
-              ...child.props,
-              onFocus: () => {
-                this.onFocus(onFocus);
-              },
-              onBlur: () => {
-                this.onBlur(onBlur);
-              }
-            });
-            break;
-          case Label:
-            const classNames = isLabelActive
-              ? [className, "active"].join(" ")
-              : className;
-
-            return React.cloneElement(child, {
-              ...child.props,
-              className: classNames
-            });
-            break;
-          default:
-            return child;
-            break;
-        }
-      });
-    };
+    const hasValue = !!value;
 
     const classNames = [
       className,
@@ -83,10 +69,60 @@ class FormGroupWithActive extends Component {
 
     return (
       <FormGroup {...rest} className={classNames}>
-        {renderChildren()}
+        {(() => {
+          {
+            return React.Children.map(children, child => {
+              const { onFocus, onBlur, onChange, className } = child.props;
+
+              switch (child.type) {
+                case Input:
+                case PasswordInput:
+                case Autocomplete:
+                  let isLabelActive = null;
+                  if (child.type === Autocomplete) {
+                    isLabelActive = {
+                      isLabelActive: hasValue
+                    };
+                  }
+
+                  return React.cloneElement(child, {
+                    ...child.props,
+                    onFocus: () => {
+                      this.onFocus(onFocus);
+                    },
+                    onBlur: () => {
+                      this.onBlur(onBlur);
+                    },
+                    onChange: e => {
+                      this.onChange(onChange, e);
+                    },
+                    ...isLabelActive
+                  });
+                  break;
+                case Label:
+                  const classNames = hasValue
+                    ? [className, "active"].join(" ")
+                    : className;
+
+                  return React.cloneElement(child, {
+                    ...child.props,
+                    className: classNames
+                  });
+                  break;
+                default:
+                  return child;
+                  break;
+              }
+            });
+          }
+        })()}
       </FormGroup>
     );
   }
 }
+
+FormGroupWithActive.propTypes = {
+  ...FormGroup.propTypes
+};
 
 export default FormGroupWithActive;
