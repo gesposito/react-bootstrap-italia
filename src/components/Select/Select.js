@@ -308,6 +308,9 @@ class SelectComponent extends Component {
   };
 
   toggleMenuIsOpen = status => {
+    const { disabled } = this.props;
+    if (disabled) return;
+
     const isDefined = status !== undefined;
     this.setState((prevState, props) => {
       return { menuIsOpen: isDefined ? status : !prevState.menuIsOpen };
@@ -333,13 +336,15 @@ class SelectComponent extends Component {
 
   render() {
     const { menuIsOpen, searchInput } = this.state;
-    const { options, isSearchable } = this.props;
+    const { options, isSearchable, disabled } = this.props;
+
     return (
       <Select
         {...this.props}
         ref={el => {
           this.container = el;
         }}
+        isDisabled={disabled}
         menuIsOpen={menuIsOpen}
         hideSelectedOptions={false}
         backspaceRemovesValue={false}
