@@ -351,12 +351,8 @@ storiesOf("Componenti/Form/Layout", module)
   .add("Form disabilitato", () => (
     <section className="m-3">
       <Form>
-        <Input type="text" placeholder="Disabled input here..." disabled />
-      </Form>
-
-      <Form>
-        <FormGroup tag="fieldset" disabled>
-          <FormGroupWithActive>
+        <fieldset disabled>
+          <FormGroup>
             <Input
               id="disabledTextInput"
               type="text"
@@ -364,25 +360,26 @@ storiesOf("Componenti/Form/Layout", module)
               disabled
             />
             <Label for="disabledTextInput">Input </Label>
-          </FormGroupWithActive>
+          </FormGroup>
+
           <FormGroup>
             <Select
               id="exampleSelect"
-              placeholder="Disabled select"
+              placeholder="Scegli..."
               options={[{ value: "", label: "..." }]}
+              disabled
             />
             <Label for="exampleSelect">Select disabilitata</Label>
           </FormGroup>
+
           <FormGroup>
-            <Select
-              id="disabledSelect"
-              placeholder="Disabled select"
-              options={[]}
-              disabled
-            />
+            <select id="disabledSelect" className="form-control">
+              <option>Disabled select</option>
+            </select>
             <Label for="disabledSelect">Select default disabilitata</Label>
           </FormGroup>
-          <div className="form-check">
+
+          <div className="form-check-label">
             <Input type="checkbox" id="disabledFieldsetCheck" disabled />
             <Label check for="disabledFieldsetCheck">
               Check disabilitato
@@ -391,7 +388,7 @@ storiesOf("Componenti/Form/Layout", module)
           <Button color="primary" className="mt-3" type="submit" disabled>
             Submit
           </Button>
-        </FormGroup>
+        </fieldset>
       </Form>
     </section>
   ));
