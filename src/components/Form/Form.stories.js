@@ -28,6 +28,8 @@ import Select from "../Select/Select";
 import CheckboxGroupsExample from "../Checkbox/CheckboxGroupsExample";
 import RadioGroupsExample from "../Radio/RadioGroupsExample";
 import AutocompleteExample from "../Autocomplete/AutocompleteExample";
+import TogglesExample from "../Toggle/TogglesExample";
+import TogglesGroupsExample from "../Toggle/TogglesGroupsExample";
 
 storiesOf("Componenti/Form", module)
   .addDecorator((story, context) => withInfo("")(story)(context))
@@ -224,9 +226,9 @@ storiesOf("Componenti/Form", module)
       <RadioGroupsExample />
     </section>
   ))
-  .add("Toggles", () => <div />)
-  .add("Toggles Disabilitate", () => <div />)
-  .add("Gruppi di Toggles", () => <div />);
+  .add("Toggles", () => <TogglesExample />)
+  .add("Toggles Disabilitate", () => <TogglesExample disabled />)
+  .add("Gruppi di Toggles", () => <TogglesGroupsExample />);
 
 storiesOf("Componenti/Form/Layout", module)
   .addDecorator((story, context) => withInfo("")(story)(context))
