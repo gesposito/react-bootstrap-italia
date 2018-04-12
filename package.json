@@ -6,8 +6,9 @@
   "scripts": {
     "prestorybook": "if [ ! -d node_modules ]; then npm install; fi",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "build-storybook": "build-storybook -c .storybook -o .out",
-    "deploy-storybook": "storybook-to-ghpages"
+    "storybook-build": "build-storybook -c .storybook -o .out",
+    "storybook-deploy": "storybook-to-ghpages",
+    "storybook-screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook"
   },
   "author": "",
   "devDependencies": {
@@ -23,15 +24,17 @@
     "babel-eslint": "^8.2.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-react-app": "^3.1.1",
+    "bootstrap-italia":
+      "git+https://github.com/italia/bootstrap-italia.git#0.4.2",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
-    "prettier": "1.11.1"
+    "prettier": "1.11.1",
+    "storybook-chrome-screenshot": "^1.1.0-alpha.1"
   },
   "dependencies": {
-    "bootstrap-italia": "git+https://github.com/italia/bootstrap-italia.git#0.4.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-select": "^2.0.0-alpha.8",

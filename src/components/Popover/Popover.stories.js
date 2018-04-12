@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import { Popover, PopoverHeader, PopoverBody, Button } from "reactstrap";
 
@@ -9,7 +10,8 @@ import PopoverExample from "./PopoverExample";
 import PopoverPositionExample from "./PopoverPositionExample";
 
 storiesOf("Componenti/Popover", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => <PopoverExample />)
   .add("Le quattro direzioni", () => <PopoverPositionExample />)
   .add("Elementi disabilitati", () => (

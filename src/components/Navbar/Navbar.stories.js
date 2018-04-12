@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import {
   Navbar,
@@ -22,7 +23,8 @@ import {
 import NavbarExample from "./NavbarExample";
 
 storiesOf("Componenti/Navbar", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => <NavbarExample />)
   .add("Brand", () => (
     <div>
@@ -109,9 +111,7 @@ storiesOf("Componenti/Navbar", module)
       >
         <Form inline className="my-2 my-lg-0">
           <InputGroup>
-            <InputGroupAddon addonType="prepend">
-              @
-            </InputGroupAddon>
+            <InputGroupAddon addonType="prepend">@</InputGroupAddon>
             <Input type="text" placeholder="Username" />
           </InputGroup>
         </Form>

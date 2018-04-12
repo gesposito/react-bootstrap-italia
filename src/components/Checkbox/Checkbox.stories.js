@@ -2,13 +2,15 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import { Form, FormGroup, Label, Input } from "reactstrap";
 
 import CheckboxGroupsExample from "./CheckboxGroupsExample";
 
 storiesOf("Componenti/Checkbox", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => (
     <Form>
       <FormGroup check>

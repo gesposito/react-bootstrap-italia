@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import { Row, Col, Form, FormGroup, Label, Input } from "reactstrap";
 
@@ -11,7 +12,8 @@ import TogglesExample from "./TogglesExample";
 import TogglesGroupsExample from "./TogglesGroupsExample";
 
 storiesOf("Componenti/Toggles", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => (
     <section>
       <TogglesExample />

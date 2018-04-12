@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import {
   Dropdown,
@@ -19,7 +20,8 @@ import DropdownDirectionsExample from "./DropdownDirectionsExample";
 import DropdownAlignmentExample from "./DropdownAlignmentExample";
 
 storiesOf("Componenti/Dropdown", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => <DropdownExample />)
   .add("Bottoni", () => <DropdownButtonExample />)
   .add("Variante Bottoni", () => <DropdownButtonExample color="danger" />)

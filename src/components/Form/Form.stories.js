@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import {
   Col,
@@ -32,7 +33,8 @@ import TogglesExample from "../Toggle/TogglesExample";
 import TogglesGroupsExample from "../Toggle/TogglesGroupsExample";
 
 storiesOf("Componenti/Form", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Input text", () => (
     <Form>
       <InputGroup className="pb-3">
@@ -231,7 +233,8 @@ storiesOf("Componenti/Form", module)
   .add("Gruppi di Toggles", () => <TogglesGroupsExample />);
 
 storiesOf("Componenti/Form/Layout", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Form group", () => (
     <Form>
       <FormGroupWithActive>

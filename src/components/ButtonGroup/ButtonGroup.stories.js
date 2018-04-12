@@ -2,13 +2,15 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import { ButtonToolbar, ButtonGroup, Button } from "reactstrap";
 
 import ButtonGroupDropdownExample from "./ButtonGroupDropdownExample";
 
 storiesOf("Componenti/Button Group", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => (
     <ButtonGroup>
       <Button>Left</Button>
@@ -71,5 +73,6 @@ storiesOf("Componenti/Button Group", module)
   ));
 
 storiesOf("Componenti/Button Group/Nesting", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => <ButtonGroupDropdownExample />);

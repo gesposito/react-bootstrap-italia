@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Form, Label, Input, Row, Col } from "reactstrap";
 
 import FormGroupWithActive from "./FormGroupWithActive";
+import PasswordInput from "./PasswordInput";
 import Select from "../Select/Select";
 
 class FormGroupsExample extends Component {

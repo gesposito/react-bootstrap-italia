@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import {
   InputGroup,
@@ -16,7 +17,8 @@ import {
 import InputGroupDropdownExample from "./InputGroupDropdownExample";
 
 storiesOf("Componenti/Input Group", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => (
     <div className="p-3">
       <InputGroup className="pb-3">

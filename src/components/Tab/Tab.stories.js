@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import { Nav, NavItem, NavLink } from "reactstrap";
 
@@ -9,7 +10,8 @@ import TabExample from "./TabExample";
 import TabButtonExample from "./TabButtonExample";
 
 storiesOf("Componenti/Tab", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => (
     <div>
       <Nav tabs className="mb-3">

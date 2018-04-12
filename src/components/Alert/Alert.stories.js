@@ -2,13 +2,15 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import { Alert, UncontrolledAlert } from "reactstrap";
 
 import AlertExample from "./AlertExample";
 
 storiesOf("Componenti/Alert", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => (
     <div>
       <Alert color="success">
@@ -48,7 +50,8 @@ storiesOf("Componenti/Alert", module)
   ));
 
 storiesOf("Componenti/Alert/Chiusura", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Non controllata", () => (
     <UncontrolledAlert color="warning">
       <strong>Attenzione</strong> Alcuni campi inseriti sono da controllare.

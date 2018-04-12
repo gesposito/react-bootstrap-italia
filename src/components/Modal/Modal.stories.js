@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 
@@ -10,7 +11,8 @@ import ModalTooltipExample from "./ModalTooltipExample";
 import ModalGridExample from "./ModalGridExample";
 
 storiesOf("Componenti/Modal", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => (
     <div style={{ padding: "100px 300px" }}>
       <div className="modal-content">

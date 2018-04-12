@@ -1,6 +1,10 @@
-import { configure } from "@storybook/react";
+import { configure, addDecorator } from "@storybook/react";
 import { setDefaults } from "@storybook/addon-info";
 import { setOptions } from "@storybook/addon-options";
+import {
+  initScreenshot,
+  setScreenshotOptions
+} from "storybook-chrome-screenshot";
 
 import "bootstrap-italia/dist/css/bootstrap-italia.css";
 import "bootstrap-italia/dist/css/italia-icon-font.css";
@@ -74,6 +78,8 @@ setOptions({
   // enable/disable shortcuts
   // enableShortcuts: false // true by default
 });
+
+addDecorator(initScreenshot());
 
 const req = require.context("../src/components", true, /\.stories\.js$/);
 

@@ -2,21 +2,30 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
+import { withScreenshot } from "storybook-chrome-screenshot";
 
 import { Tooltip, UncontrolledTooltip, Button } from "reactstrap";
 
 storiesOf("Componenti/Tooltip", module)
-  .addDecorator((story, context) => withInfo("")(story)(context))
+  // .addDecorator((story, context) => withInfo("")(story)(context))
+  .addDecorator(withScreenshot())
   .add("Esempi", () => (
     <div className="bd-example tooltip-demo">
       <p className="muted">
-        Ecco un <a href="#" id="Example1">bianco scenario</a>
+        Ecco un{" "}
+        <a href="#" id="Example1">
+          bianco scenario
+        </a>
         <br />
         per tratteggiarvi l’accompagnamento
         <br />
         degli oggetti di sfondo che pur vivono.
         <br />
-        Non ne sarò <a href="#" id="Example2">l’artefice</a> impaziente.
+        Non ne sarò{" "}
+        <a href="#" id="Example2">
+          l’artefice
+        </a>{" "}
+        impaziente.
         <br />
         Berrò alle coppe della nostalgia,
         <br />
