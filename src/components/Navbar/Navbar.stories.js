@@ -23,7 +23,7 @@ import {
 import NavbarExample from "./NavbarExample";
 
 const stories = storiesOf("Componenti/Navbar", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => <NavbarExample />);
 stories.add("Brand", () => (

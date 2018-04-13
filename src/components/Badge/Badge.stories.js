@@ -7,7 +7,7 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 import { Badge, Button } from "reactstrap";
 
 const stories = storiesOf("Componenti/Badge", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <div>

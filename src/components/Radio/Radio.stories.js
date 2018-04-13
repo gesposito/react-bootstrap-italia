@@ -9,7 +9,7 @@ import { Form, FormGroup, Label, Input } from "reactstrap";
 import RadioGroupsExample from "./RadioGroupsExample";
 
 const stories = storiesOf("Componenti/Radio Button", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <Form className="m-3">

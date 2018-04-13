@@ -20,7 +20,7 @@ import DropdownDirectionsExample from "./DropdownDirectionsExample";
 import DropdownAlignmentExample from "./DropdownAlignmentExample";
 
 const stories = storiesOf("Componenti/Dropdown", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => <DropdownExample />);
 stories.add("Bottoni", () => <DropdownButtonExample />);

@@ -7,7 +7,7 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 
 const stories = storiesOf("Componenti/Pagination", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <Pagination>

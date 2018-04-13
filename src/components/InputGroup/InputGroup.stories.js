@@ -17,7 +17,7 @@ import {
 import InputGroupDropdownExample from "./InputGroupDropdownExample";
 
 const stories = storiesOf("Componenti/Input Group", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <div className="p-3">

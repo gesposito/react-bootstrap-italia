@@ -7,7 +7,7 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 import { ListGroup, ListGroupItem, Badge } from "reactstrap";
 
 const stories = storiesOf("Componenti/ListGroup", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <ListGroup className="w-50">

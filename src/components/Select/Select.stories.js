@@ -7,7 +7,7 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 import SelectExample from "./SelectExample";
 
 const stories = storiesOf("Componenti/Select", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => <SelectExample />);
 stories.add("Multipla", () => <SelectExample multi />);

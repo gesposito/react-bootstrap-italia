@@ -9,7 +9,7 @@ import { ButtonToolbar, ButtonGroup, Button } from "reactstrap";
 import ButtonGroupDropdownExample from "./ButtonGroupDropdownExample";
 
 const stories = storiesOf("Componenti/Button Group", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <ButtonGroup>
@@ -73,6 +73,6 @@ stories.add("Vertical", () => (
 ));
 
 const moreStories = storiesOf("Componenti/Button Group/Nesting", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+moreStories.addDecorator((story, context) => withInfo("")(story)(context));
 moreStories.addDecorator(withScreenshot());
 moreStories.add("Esempi", () => <ButtonGroupDropdownExample />);

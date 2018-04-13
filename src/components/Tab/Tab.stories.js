@@ -10,7 +10,7 @@ import TabExample from "./TabExample";
 import TabButtonExample from "./TabButtonExample";
 
 const stories = storiesOf("Componenti/Tab", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <div>

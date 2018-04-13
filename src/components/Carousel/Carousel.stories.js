@@ -7,7 +7,7 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 import CarouselExample from "./CarouselExample";
 
 const stories = storiesOf("Componenti/Carousel", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Solo diapositive", () => <CarouselExample />);
 stories.add("Con i controlli", () => <CarouselExample controls={true} />);

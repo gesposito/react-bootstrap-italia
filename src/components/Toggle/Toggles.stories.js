@@ -12,7 +12,7 @@ import TogglesExample from "./TogglesExample";
 import TogglesGroupsExample from "./TogglesGroupsExample";
 
 const stories = storiesOf("Componenti/Toggles", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <section>

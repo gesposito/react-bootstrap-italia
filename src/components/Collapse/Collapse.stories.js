@@ -8,7 +8,7 @@ import CollapseExample from "./CollapseExample";
 import CollapseAccordionExample from "./CollapseAccordionExample";
 
 const stories = storiesOf("Componenti/Collapse", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => <CollapseExample />);
 stories.add("Elemento a fisarmonica", () => <CollapseAccordionExample />);

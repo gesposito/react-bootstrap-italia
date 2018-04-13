@@ -11,7 +11,7 @@ import ModalTooltipExample from "./ModalTooltipExample";
 import ModalGridExample from "./ModalGridExample";
 
 const stories = storiesOf("Componenti/Modal", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <div style={{ padding: "100px 300px" }}>

@@ -10,7 +10,7 @@ import PopoverExample from "./PopoverExample";
 import PopoverPositionExample from "./PopoverPositionExample";
 
 const stories = storiesOf("Componenti/Popover", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => <PopoverExample />);
 stories.add("Le quattro direzioni", () => <PopoverPositionExample />);

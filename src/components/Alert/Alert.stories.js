@@ -9,7 +9,7 @@ import { Alert, UncontrolledAlert } from "reactstrap";
 import AlertExample from "./AlertExample";
 
 const stories = storiesOf("Componenti/Alert", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <div>
@@ -50,7 +50,7 @@ stories.add("Contenuto aggiuntivo", () => (
 ));
 
 const moreStories = storiesOf("Componenti/Alert/Chiusura", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+moreStories.addDecorator((story, context) => withInfo("")(story)(context));
 moreStories.addDecorator(withScreenshot());
 moreStories.add("Non controllata", () => (
   <UncontrolledAlert color="warning">

@@ -7,7 +7,7 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 import AutocompleteExample from "./AutocompleteExample";
 
 const stories = storiesOf("Componenti/Autocomplete", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Input autocomplete", () => (
   <section>

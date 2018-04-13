@@ -7,7 +7,7 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 import { Tooltip, UncontrolledTooltip, Button } from "reactstrap";
 
 const stories = storiesOf("Componenti/Tooltip", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <div className="bd-example tooltip-demo">

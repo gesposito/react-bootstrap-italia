@@ -7,6 +7,6 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 import ScrollspyExample from "./ScrollspyExample";
 
 const stories = storiesOf("Componenti/Scrollspy", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => <ScrollspyExample />);

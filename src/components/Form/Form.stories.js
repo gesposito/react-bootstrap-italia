@@ -33,7 +33,7 @@ import TogglesExample from "../Toggle/TogglesExample";
 import TogglesGroupsExample from "../Toggle/TogglesGroupsExample";
 
 const stories = storiesOf("Componenti/Form", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Input text", () => (
   <Form>
@@ -235,7 +235,7 @@ stories.add("Toggles Disabilitate", () => <TogglesExample disabled />);
 stories.add("Gruppi di Toggles", () => <TogglesGroupsExample />);
 
 const moreStories = storiesOf("Componenti/Form/Layout", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+moreStories.addDecorator((story, context) => withInfo("")(story)(context));
 moreStories.addDecorator(withScreenshot());
 moreStories.add("Form group", () => (
   <Form>

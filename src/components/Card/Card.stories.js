@@ -22,7 +22,7 @@ import {
 } from "reactstrap";
 
 const stories = storiesOf("Componenti/Card", module);
-// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context))
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <Card className="w-50">
