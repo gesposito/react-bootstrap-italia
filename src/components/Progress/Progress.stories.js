@@ -3,11 +3,18 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { withScreenshot } from "storybook-chrome-screenshot";
+import {
+  withKnobs,
+  number,
+  text,
+  select,
+  boolean
+} from "@storybook/addon-knobs/react";
 
 import { Progress } from "reactstrap";
 
 const stories = storiesOf("Componenti/Progress", module);
-stories.addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <div>
@@ -34,3 +41,19 @@ stories.add("Background", () => (
     <Progress color="danger" value="100" className="mt-3" />
   </div>
 ));
+
+const knobsStories = storiesOf("Componenti/Progress", module);
+knobsStories.addDecorator(withKnobs);
+knobsStories.add("Esempi interattivi", () => {
+  const value = number("Valore", 25);
+  const height = number("Altezza", 18);
+  const colors = ["", "success", "info", "warning", "danger"];
+  const color = select("Background", colors, colors[0]);
+  const label = text("Etichetta", "");
+
+  return (
+    <Progress color={color} value={value} className="m-3" style={{ height }}>
+      {label}
+    </Progress>
+  );
+});

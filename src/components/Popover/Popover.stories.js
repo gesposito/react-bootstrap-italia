@@ -3,6 +3,8 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { withScreenshot } from "storybook-chrome-screenshot";
+import { withKnobs, select, boolean, text } from "@storybook/addon-knobs/react";
+import { State, Store } from "@sambego/storybook-state";
 
 import { Popover, PopoverHeader, PopoverBody, Button } from "reactstrap";
 
@@ -10,7 +12,7 @@ import PopoverExample from "./PopoverExample";
 import PopoverPositionExample from "./PopoverPositionExample";
 
 const stories = storiesOf("Componenti/Popover", module);
-stories.addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => <PopoverExample />);
 stories.add("Le quattro direzioni", () => <PopoverPositionExample />);
@@ -27,3 +29,44 @@ stories.add("Elementi disabilitati", () => (
     </Popover>
   </div>
 ));
+
+const store = new Store({
+  isOpen: false
+});
+
+const knobsStories = storiesOf("Componenti/Popover", module);
+knobsStories.addDecorator(withKnobs);
+knobsStories.add("Esempi interattivi", () => {
+  const disabled = boolean("Disabilitato", false);
+  const placements = ["top", "bottom", "left", "right"];
+  const placement = select("Posizione", placements, placements[0]);
+  const title = text("Titolo", "Titolo del popover");
+  const body = text(
+    "Body",
+    "Ed ecco alcuni contenuti sorprendenti. È molto coinvolgente. Non trovi?"
+  );
+
+  return (
+    <div style={{ padding: 250 }}>
+      <Button
+        color="primary"
+        id="Example"
+        disabled={disabled}
+        onClick={() => store.set({ isOpen: !store.get("isOpen") })}
+      >
+        Popover {disabled ? "Disabilitato" : ""}
+      </Button>
+      <State store={store}>
+        <Popover
+          placement={placement}
+          target="Example"
+          toggle={() => store.set({ isOpen: !store.get("isOpen") })}
+          isOpen={store.get("isOpen")}
+        >
+          <PopoverHeader>{title}</PopoverHeader>
+          <PopoverBody>{body}</PopoverBody>
+        </Popover>
+      </State>
+    </div>
+  );
+});

@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { withScreenshot } from "storybook-chrome-screenshot";
+import { withKnobs, select, boolean } from "@storybook/addon-knobs/react";
 
 import { Alert, UncontrolledAlert } from "reactstrap";
 
@@ -58,3 +59,17 @@ moreStories.add("Non controllata", () => (
   </UncontrolledAlert>
 ));
 moreStories.add("Controllata", () => <AlertExample />);
+
+const knobsStories = storiesOf("Componenti/Alert", module);
+knobsStories.addDecorator(withKnobs);
+knobsStories.add("Esempi interattivi", () => {
+  const colors = ["success", "danger", "warning"];
+  const color = select("Variazioni", colors, colors[0]);
+  const open = boolean("Visible", true);
+
+  return (
+    <Alert color={color} isOpen={open}>
+      Questo è un alert di <em>{color}</em>!
+    </Alert>
+  );
+});

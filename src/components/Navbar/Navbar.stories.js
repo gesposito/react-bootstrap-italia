@@ -3,6 +3,12 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { withScreenshot } from "storybook-chrome-screenshot";
+import {
+  withKnobs,
+  select,
+  boolean,
+  color
+} from "@storybook/addon-knobs/react";
 
 import {
   Navbar,
@@ -23,7 +29,7 @@ import {
 import NavbarExample from "./NavbarExample";
 
 const stories = storiesOf("Componenti/Navbar", module);
-stories.addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => <NavbarExample />);
 stories.add("Brand", () => (
@@ -254,3 +260,29 @@ stories.add("Placement", () => (
     </Navbar>
   </Container>
 ));
+
+const knobsStories = storiesOf("Componenti/Navbar", module);
+knobsStories.addDecorator(withKnobs);
+knobsStories.add("Esempi interattivi", () => {
+  const themes = ["", "dark", "light"];
+  const theme = select("Temi", themes, themes[0]);
+  const variations = ["", "primary", "dark"];
+  const variation = select("Variazioni", variations, variations[0]);
+  const selectedColor = color("Color", "#e3f2fd");
+  const placements = ["", "top", "bottom"];
+  const placement = select("Posizionamento", placements, placements[0]);
+  const sticky = boolean("Sticky", false);
+
+  return (
+    <Navbar
+      light
+      expand="lg"
+      fixed={placement}
+      sticky={placement}
+      className={`bg-${variation}`}
+      style={{ backgroundColor: selectedColor }}
+    >
+      <NavbarBrand href="#">Brand</NavbarBrand>
+    </Navbar>
+  );
+});

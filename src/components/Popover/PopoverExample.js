@@ -1,10 +1,6 @@
 import React from "react";
 import {
   Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
   Tooltip,
   UncontrolledTooltip,
   Popover,
@@ -14,21 +10,14 @@ import {
 
 class PopoverExample extends React.Component {
   state = {
-    modal: false,
     popoverOpen: false
-  }
-  
-  toggle = () => {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
+  };
 
   togglePopover = () => {
     this.setState({
       popoverOpen: !this.state.popoverOpen
     });
-  }
+  };
 
   render() {
     return (

@@ -41,7 +41,7 @@ class FormSizingExample extends Component {
           </Col>
           <Col xs="auto">
             <div className="form-check m-0">
-              <Input check type="checkbox" id="autoSizingCheck" />
+              <Input type="checkbox" id="autoSizingCheck" />
               <Label check for="autoSizingCheck">
                 Ricordami
               </Label>

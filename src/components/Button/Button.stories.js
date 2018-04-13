@@ -3,11 +3,12 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { withScreenshot } from "storybook-chrome-screenshot";
+import { withKnobs, select, boolean, text } from "@storybook/addon-knobs/react";
 
 import { Button } from "reactstrap";
 
 const stories = storiesOf("Componenti/Button", module);
-stories.addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <div>
@@ -137,3 +138,34 @@ stories.add("Stato Disabilitato", () => (
     </Button>
   </div>
 ));
+
+const knobsStories = storiesOf("Componenti/Button", module);
+knobsStories.addDecorator(withKnobs);
+knobsStories.add("Esempi interattivi", () => {
+  const colors = [
+    "italia",
+    "primary",
+    "secondary",
+    "tertiary",
+    "quaternary",
+    "success",
+    "info",
+    "danger",
+    "warning",
+    "link"
+  ];
+  const dimensions = ["sm", "", "lg"];
+  const color = select("Variazioni", colors, colors[0]);
+  const dimension = select("Dimensioni", dimensions, dimensions[0]);
+  const block = boolean("Block", false);
+  const active = boolean("Attivo", true);
+  const disabled = boolean("Disabilitato", false);
+  const label = text("Label", "");
+
+  return (
+    <Button color={color} block={block} active={active} disabled={disabled}>
+      {label} {color} {dimension} {block ? "block" : ""}{" "}
+      {active ? "attivo" : ""} {disabled ? "disabilitato" : ""}
+    </Button>
+  );
+});

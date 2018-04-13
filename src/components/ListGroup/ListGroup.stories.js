@@ -3,11 +3,12 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { withScreenshot } from "storybook-chrome-screenshot";
+import { withKnobs, select, boolean, text } from "@storybook/addon-knobs/react";
 
 import { ListGroup, ListGroupItem, Badge } from "reactstrap";
 
 const stories = storiesOf("Componenti/ListGroup", module);
-stories.addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <ListGroup className="w-50">
@@ -161,3 +162,49 @@ stories.add("Contenuto personalizzato", () => (
     </ListGroupItem>
   </ListGroup>
 ));
+
+const knobsStories = storiesOf("Componenti/ListGroup", module);
+knobsStories.addDecorator(withKnobs);
+knobsStories.add("Esempi interattivi", () => {
+  const active = boolean("Attivo", false);
+  const link = boolean("Link", false);
+  const button = boolean("Bottoni", false);
+  const flush = boolean("Flush", false);
+  const colors = [
+    "italia",
+    "primary",
+    "secondary",
+    "tertiary",
+    "quaternary",
+    "success",
+    "danger",
+    "warning"
+  ];
+  const color = select("Variazioni", colors, colors[0]);
+  const disabled = boolean("Disabilitato", false);
+  const value = text("Testo", "Dapibus ac facilisis in");
+
+  let tag;
+  let href;
+  if (link) {
+    tag = "a";
+    href = "#";
+  } else if (button) {
+    tag = "button";
+  }
+
+  return (
+    <ListGroup flush={flush}>
+      <ListGroupItem
+        action
+        active={active}
+        disabled={disabled}
+        color={color}
+        tag={tag}
+        href={href}
+      >
+        {value}
+      </ListGroupItem>
+    </ListGroup>
+  );
+});

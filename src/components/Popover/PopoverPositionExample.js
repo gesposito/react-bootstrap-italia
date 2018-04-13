@@ -4,13 +4,13 @@ import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
 class PopoverItem extends React.Component {
   state = {
     popoverOpen: false
-  }
-  
+  };
+
   toggle = () => {
     this.setState({
       popoverOpen: !this.state.popoverOpen
     });
-  }
+  };
 
   render() {
     return (
@@ -46,7 +46,7 @@ class PopoverPositionExample extends React.Component {
       { placement: "left", text: "a sinistra" },
       { placement: "right", text: "a destra" }
     ]
-  }
+  };
 
   render() {
     return (

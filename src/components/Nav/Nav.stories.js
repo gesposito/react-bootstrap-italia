@@ -3,11 +3,12 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { withScreenshot } from "storybook-chrome-screenshot";
+import { withKnobs, boolean } from "@storybook/addon-knobs/react";
 
 import { Nav, NavLink, NavItem } from "reactstrap";
 
 const stories = storiesOf("Componenti/Nav", module);
-stories.addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <div>
@@ -123,3 +124,24 @@ stories.add("“fill” e “justify”", () => (
     </Nav>
   </div>
 ));
+
+const knobsStories = storiesOf("Componenti/Nav", module);
+knobsStories.addDecorator(withKnobs);
+knobsStories.add("Esempi interattivi", () => {
+  const active = boolean("Attivo", false);
+  const disabled = boolean("Disabilitato", false);
+
+  const tabs = boolean("Tab", false);
+  const pills = boolean("Bottoni", false);
+  const fill = boolean("Fill", false);
+  const justified = boolean("Justify", false);
+
+  return (
+    <Nav tabs={tabs} pills={pills} fill={fill} justified={justified}>
+      <NavLink active={active} disabled={disabled} href="#">
+        Link {active ? "Attivo" : ""} {disabled ? "Disabilitato" : ""}{" "}
+        {pills ? "Bottone" : ""} {tabs ? "Tab" : ""}
+      </NavLink>
+    </Nav>
+  );
+});

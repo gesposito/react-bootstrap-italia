@@ -3,11 +3,12 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { withScreenshot } from "storybook-chrome-screenshot";
+import { withKnobs, select, boolean, text } from "@storybook/addon-knobs/react";
 
 import { Badge, Button } from "reactstrap";
 
 const stories = storiesOf("Componenti/Badge", module);
-stories.addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <div>
@@ -104,3 +105,28 @@ stories.add("Link", () => (
     </Badge>
   </div>
 ));
+
+const knobsStories = storiesOf("Componenti/Badge", module);
+knobsStories.addDecorator(withKnobs);
+knobsStories.add("Esempi interattivi", () => {
+  const colors = [
+    "italia",
+    "primary",
+    "secondary",
+    "tertiary",
+    "quaternary",
+    "success",
+    "danger",
+    "warning"
+  ];
+  const color = select("Variazioni", colors, colors[0]);
+  const pill = boolean("Arrotondati", true);
+  const label = text("Label", "");
+
+  return (
+    <Badge color={color} pill={pill}>
+      {label}
+      {color}
+    </Badge>
+  );
+});

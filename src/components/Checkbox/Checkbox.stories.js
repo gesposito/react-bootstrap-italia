@@ -3,13 +3,14 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { withScreenshot } from "storybook-chrome-screenshot";
+import { withKnobs, boolean, text } from "@storybook/addon-knobs/react";
 
 import { Form, FormGroup, Label, Input } from "reactstrap";
 
 import CheckboxGroupsExample from "./CheckboxGroupsExample";
 
 const stories = storiesOf("Componenti/Checkbox", module);
-stories.addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <Form>
@@ -67,3 +68,43 @@ stories.add("Disabilitate", () => (
   </Form>
 ));
 stories.add("Gruppi di Checkbox", () => <CheckboxGroupsExample />);
+
+const knobsStories = storiesOf("Componenti/Checkbox", module);
+knobsStories.addDecorator(withKnobs);
+knobsStories.add("Esempi interattivi", () => {
+  const checked = boolean("Selezionato", true);
+  const disabled = boolean("Disabilitato", false);
+  const inline = boolean("Inline", false);
+  const label = text("Label", "Checkbox");
+
+  return (
+    <Form>
+      <FormGroup check inline={inline}>
+        <Input
+          id="checkbox1"
+          type="checkbox"
+          checked={checked}
+          disabled={disabled}
+          onChange={() => {}}
+        />
+        <Label for="checkbox1" check>
+          {label} {checked ? "Selezionato" : ""}{" "}
+          {disabled ? "Disabilitato" : ""} {inline ? "Inline" : ""}
+        </Label>
+      </FormGroup>
+      <FormGroup check inline={inline}>
+        <Input
+          id="checkbox1"
+          type="checkbox"
+          checked={!checked}
+          disabled={disabled}
+          onChange={() => {}}
+        />
+        <Label for="checkbox1" check>
+          {label} inverso {!checked ? "Selezionato" : ""}{" "}
+          {disabled ? "Disabilitato" : ""} {inline ? "Inline" : ""}
+        </Label>
+      </FormGroup>
+    </Form>
+  );
+});

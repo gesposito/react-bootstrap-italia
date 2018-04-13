@@ -3,11 +3,12 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { withScreenshot } from "storybook-chrome-screenshot";
+import { withKnobs, select, boolean } from "@storybook/addon-knobs/react";
 
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 
 const stories = storiesOf("Componenti/Pagination", module);
-stories.addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <Pagination>
@@ -137,3 +138,30 @@ stories.add("Responsive", () => (
     </PaginationItem>
   </Pagination>
 ));
+
+const knobsStories = storiesOf("Componenti/Pagination", module);
+knobsStories.addDecorator(withKnobs);
+knobsStories.add("Esempi interattivi", () => {
+  const active = boolean("Attivo", false);
+  const disabled = boolean("Disabilitato", false);
+  const sizes = ["sm", "", "lg"];
+  const size = select("Dimensioni", sizes, sizes[0]);
+
+  return (
+    <Pagination size={size}>
+      <PaginationItem active={active} disabled={disabled}>
+        <PaginationLink previous href="#">
+          <span className="it-chevron-left" />
+        </PaginationLink>
+      </PaginationItem>
+      <PaginationItem active={active} disabled={disabled}>
+        <PaginationLink href="#">1</PaginationLink>
+      </PaginationItem>
+      <PaginationItem active={active} disabled={disabled}>
+        <PaginationLink next href="#">
+          <span className="it-chevron-right" />
+        </PaginationLink>
+      </PaginationItem>
+    </Pagination>
+  );
+});

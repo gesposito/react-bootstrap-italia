@@ -3,11 +3,12 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { action } from "@storybook/addon-actions";
 import { withScreenshot } from "storybook-chrome-screenshot";
+import { withKnobs, text, select } from "@storybook/addon-knobs/react";
 
 import { Tooltip, UncontrolledTooltip, Button } from "reactstrap";
 
 const stories = storiesOf("Componenti/Tooltip", module);
-stories.addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator((story, context) => withInfo("")(story)(context));
 stories.addDecorator(withScreenshot());
 stories.add("Esempi", () => (
   <div className="bd-example tooltip-demo">
@@ -95,3 +96,23 @@ stories.add("Posizioni", () => (
     </UncontrolledTooltip>
   </div>
 ));
+
+const knobsStories = storiesOf("Componenti/Tooltip", module);
+knobsStories.addDecorator(withKnobs);
+knobsStories.add("Esempi interattivi", () => {
+  const placements = ["top", "bottom", "left", "right"];
+  const placement = select("Posizione", placements, placements[0]);
+  const body = text("Body", "Tooltip");
+
+  return (
+    <div style={{ padding: 200 }}>
+      <Button id="Example1" className="m-3">
+        Tooltip
+      </Button>
+
+      <UncontrolledTooltip placement={placement} target="Example1">
+        {body}
+      </UncontrolledTooltip>
+    </div>
+  );
+});
