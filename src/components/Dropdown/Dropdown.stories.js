@@ -19,38 +19,38 @@ import DropdownFullSizingExample from "./DropdownFullSizingExample";
 import DropdownDirectionsExample from "./DropdownDirectionsExample";
 import DropdownAlignmentExample from "./DropdownAlignmentExample";
 
-storiesOf("Componenti/Dropdown", module)
-  // .addDecorator((story, context) => withInfo("")(story)(context))
-  .addDecorator(withScreenshot())
-  .add("Esempi", () => <DropdownExample />)
-  .add("Bottoni", () => <DropdownButtonExample />)
-  .add("Variante Bottoni", () => <DropdownButtonExample color="danger" />)
-  .add("Bottoni divisi", () => <DropdownButtonGroupExample />)
-  .add("Dimensioni", () => <DropdownSizingExample />)
-  .add("Dropdown a tutta larghezza", () => <DropdownFullSizingExample />)
-  .add("Direzioni Dropdown", () => <DropdownDirectionsExample />)
-  .add("Allineamento orizzontale", () => <DropdownAlignmentExample />)
-  .add("Voci di menù attive", () => (
-    <div style={{ paddingBottom: 150 }}>
-      <Dropdown isOpen toggle={() => {}}>
-        <DropdownToggle caret>Dropdown</DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem>Azione 1</DropdownItem>
-          <DropdownItem active>Azione 2</DropdownItem>
-          <DropdownItem>Azione 3</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-    </div>
-  ))
-  .add("Voci di menù disabilitate", () => (
-    <div style={{ paddingBottom: 150 }}>
-      <Dropdown isOpen toggle={() => {}}>
-        <DropdownToggle caret>Dropdown</DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem>Azione 1</DropdownItem>
-          <DropdownItem disabled>Azione 2</DropdownItem>
-          <DropdownItem>Azione 3</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-    </div>
-  ));
+const stories = storiesOf("Componenti/Dropdown", module);
+// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator(withScreenshot());
+stories.add("Esempi", () => <DropdownExample />);
+stories.add("Bottoni", () => <DropdownButtonExample />);
+stories.add("Variante Bottoni", () => <DropdownButtonExample color="danger" />);
+stories.add("Bottoni divisi", () => <DropdownButtonGroupExample />);
+stories.add("Dimensioni", () => <DropdownSizingExample />);
+stories.add("Dropdown a tutta larghezza", () => <DropdownFullSizingExample />);
+stories.add("Direzioni Dropdown", () => <DropdownDirectionsExample />);
+stories.add("Allineamento orizzontale", () => <DropdownAlignmentExample />);
+stories.add("Voci di menù attive", () => (
+  <div style={{ paddingBottom: 150 }}>
+    <Dropdown isOpen toggle={() => {}}>
+      <DropdownToggle caret>Dropdown</DropdownToggle>
+      <DropdownMenu>
+        <DropdownItem>Azione 1</DropdownItem>
+        <DropdownItem active>Azione 2</DropdownItem>
+        <DropdownItem>Azione 3</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  </div>
+));
+stories.add("Voci di menù disabilitate", () => (
+  <div style={{ paddingBottom: 150 }}>
+    <Dropdown isOpen toggle={() => {}}>
+      <DropdownToggle caret>Dropdown</DropdownToggle>
+      <DropdownMenu>
+        <DropdownItem>Azione 1</DropdownItem>
+        <DropdownItem disabled>Azione 2</DropdownItem>
+        <DropdownItem>Azione 3</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  </div>
+));

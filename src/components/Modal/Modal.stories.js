@@ -10,32 +10,32 @@ import ModalExample from "./ModalExample";
 import ModalTooltipExample from "./ModalTooltipExample";
 import ModalGridExample from "./ModalGridExample";
 
-storiesOf("Componenti/Modal", module)
-  // .addDecorator((story, context) => withInfo("")(story)(context))
-  .addDecorator(withScreenshot())
-  .add("Esempi", () => (
-    <div style={{ padding: "100px 300px" }}>
-      <div className="modal-content">
-        <ModalHeader>Titolo della modale</ModalHeader>
-        <ModalBody>Il testo del corpo della modale va qui.</ModalBody>
-        <ModalFooter>
-          <Button color="secondary">Chiudi</Button>
-          <Button color="primary">Salva le modifiche</Button>
-        </ModalFooter>
-      </div>
+const stories = storiesOf("Componenti/Modal", module);
+// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator(withScreenshot());
+stories.add("Esempi", () => (
+  <div style={{ padding: "100px 300px" }}>
+    <div className="modal-content">
+      <ModalHeader>Titolo della modale</ModalHeader>
+      <ModalBody>Il testo del corpo della modale va qui.</ModalBody>
+      <ModalFooter>
+        <Button color="secondary">Chiudi</Button>
+        <Button color="primary">Salva le modifiche</Button>
+      </ModalFooter>
     </div>
-  ))
-  .add("Bottone di chiusura", () => (
-    <div style={{ position: "relative", padding: 10 }}>
-      <Button className="close" style={{ position: "absolute" }}>
-        &times;
-      </Button>
-    </div>
-  ))
-  .add("Demo", () => <ModalExample />)
-  .add("Scroll di contenuti lunghi", () => <ModalExample long />)
-  .add("Centratura verticale", () => <ModalExample centered />)
-  .add("Tooltip and popover", () => <ModalTooltipExample />)
-  .add("Uso della griglia", () => <ModalGridExample />)
-  .add("Rimuovere l’animazione", () => <ModalExample fade={false} />)
-  .add("Dimensioni", () => <ModalExample sizing />);
+  </div>
+));
+stories.add("Bottone di chiusura", () => (
+  <div style={{ position: "relative", padding: 10 }}>
+    <Button className="close" style={{ position: "absolute" }}>
+      &times;
+    </Button>
+  </div>
+));
+stories.add("Demo", () => <ModalExample />);
+stories.add("Scroll di contenuti lunghi", () => <ModalExample long />);
+stories.add("Centratura verticale", () => <ModalExample centered />);
+stories.add("Tooltip and popover", () => <ModalTooltipExample />);
+stories.add("Uso della griglia", () => <ModalGridExample />);
+stories.add("Rimuovere l’animazione", () => <ModalExample fade={false} />);
+stories.add("Dimensioni", () => <ModalExample sizing />);

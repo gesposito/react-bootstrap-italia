@@ -7,8 +7,8 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 import CollapseExample from "./CollapseExample";
 import CollapseAccordionExample from "./CollapseAccordionExample";
 
-storiesOf("Componenti/Collapse", module)
-  // .addDecorator((story, context) => withInfo("")(story)(context))
-  .addDecorator(withScreenshot())
-  .add("Esempi", () => <CollapseExample />)
-  .add("Elemento a fisarmonica", () => <CollapseAccordionExample />);
+const stories = storiesOf("Componenti/Collapse", module);
+// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator(withScreenshot());
+stories.add("Esempi", () => <CollapseExample />);
+stories.add("Elemento a fisarmonica", () => <CollapseAccordionExample />);

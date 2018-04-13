@@ -6,14 +6,14 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 
 import CarouselExample from "./CarouselExample";
 
-storiesOf("Componenti/Carousel", module)
-  // .addDecorator((story, context) => withInfo("")(story)(context))
-  .addDecorator(withScreenshot())
-  .add("Solo diapositive", () => <CarouselExample />)
-  .add("Con i controlli", () => <CarouselExample controls={true} />)
-  .add("Con gli indicatori", () => (
-    <CarouselExample controls={true} indicators={true} />
-  ))
-  .add("Con le didascalie", () => (
-    <CarouselExample controls={true} indicators={true} captions={true} />
-  ));
+const stories = storiesOf("Componenti/Carousel", module);
+// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator(withScreenshot());
+stories.add("Solo diapositive", () => <CarouselExample />);
+stories.add("Con i controlli", () => <CarouselExample controls={true} />);
+stories.add("Con gli indicatori", () => (
+  <CarouselExample controls={true} indicators={true} />
+));
+stories.add("Con le didascalie", () => (
+  <CarouselExample controls={true} indicators={true} captions={true} />
+));

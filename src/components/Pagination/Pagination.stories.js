@@ -6,34 +6,58 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 
-storiesOf("Componenti/Pagination", module)
-  // .addDecorator((story, context) => withInfo("")(story)(context))
-  .addDecorator(withScreenshot())
-  .add("Esempi", () => (
-    <Pagination>
-      <PaginationItem>
-        <PaginationLink previous href="#">
-          <span className="it-chevron-left" />
-        </PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#">1</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#">2</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#">3</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink next href="#">
-          <span className="it-chevron-right" />
-        </PaginationLink>
-      </PaginationItem>
-    </Pagination>
-  ))
-  .add("Stato disabilitato e attivo", () => (
-    <Pagination>
+const stories = storiesOf("Componenti/Pagination", module);
+// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator(withScreenshot());
+stories.add("Esempi", () => (
+  <Pagination>
+    <PaginationItem>
+      <PaginationLink previous href="#">
+        <span className="it-chevron-left" />
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">2</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">3</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink next href="#">
+        <span className="it-chevron-right" />
+      </PaginationLink>
+    </PaginationItem>
+  </Pagination>
+));
+stories.add("Stato disabilitato e attivo", () => (
+  <Pagination>
+    <PaginationItem disabled>
+      <PaginationLink previous href="#">
+        <span className="it-chevron-left" />
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem active>
+      <PaginationLink href="#">1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">2</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">3</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink next href="#">
+        <span className="it-chevron-right" />
+      </PaginationLink>
+    </PaginationItem>
+  </Pagination>
+));
+stories.add("Dimensione e allineamento", () => (
+  <div>
+    <Pagination size="lg" className="mb-3">
       <PaginationItem disabled>
         <PaginationLink previous href="#">
           <span className="it-chevron-left" />
@@ -54,81 +78,21 @@ storiesOf("Componenti/Pagination", module)
         </PaginationLink>
       </PaginationItem>
     </Pagination>
-  ))
-  .add("Dimensione e allineamento", () => (
-    <div>
-      <Pagination size="lg" className="mb-3">
-        <PaginationItem disabled>
-          <PaginationLink previous href="#">
-            <span className="it-chevron-left" />
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem active>
-          <PaginationLink href="#">1</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">2</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">3</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink next href="#">
-            <span className="it-chevron-right" />
-          </PaginationLink>
-        </PaginationItem>
-      </Pagination>
 
-      <Pagination size="sm" className="justify-content-end mb-3">
-        <PaginationItem disabled>
-          <PaginationLink previous href="#">
-            <span className="it-chevron-left" />
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem active>
-          <PaginationLink href="#">1</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">2</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">3</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink next href="#">
-            <span className="it-chevron-right" />
-          </PaginationLink>
-        </PaginationItem>
-      </Pagination>
-    </div>
-  ))
-  .add("Responsive", () => (
-    <Pagination className="mb-3">
-      <PaginationItem>
+    <Pagination size="sm" className="justify-content-end mb-3">
+      <PaginationItem disabled>
         <PaginationLink previous href="#">
           <span className="it-chevron-left" />
         </PaginationLink>
       </PaginationItem>
-      <PaginationItem className="d-none d-sm-block">
-        <span className="p-3">...</span>
-      </PaginationItem>
-      <PaginationItem className="d-none d-sm-block">
-        <PaginationLink href="#">9</PaginationLink>
-      </PaginationItem>
-      <PaginationItem className="d-none d-sm-block">
-        <PaginationLink href="#">10</PaginationLink>
-      </PaginationItem>
       <PaginationItem active>
-        <PaginationLink href="#">11</PaginationLink>
+        <PaginationLink href="#">1</PaginationLink>
       </PaginationItem>
-      <PaginationItem className="d-none d-sm-block">
-        <PaginationLink href="#">12</PaginationLink>
+      <PaginationItem>
+        <PaginationLink href="#">2</PaginationLink>
       </PaginationItem>
-      <PaginationItem className="d-none d-sm-block">
-        <PaginationLink href="#">13</PaginationLink>
-      </PaginationItem>
-      <PaginationItem className="d-none d-sm-block">
-        <span className="p-3">...</span>
+      <PaginationItem>
+        <PaginationLink href="#">3</PaginationLink>
       </PaginationItem>
       <PaginationItem>
         <PaginationLink next href="#">
@@ -136,4 +100,40 @@ storiesOf("Componenti/Pagination", module)
         </PaginationLink>
       </PaginationItem>
     </Pagination>
-  ));
+  </div>
+));
+stories.add("Responsive", () => (
+  <Pagination className="mb-3">
+    <PaginationItem>
+      <PaginationLink previous href="#">
+        <span className="it-chevron-left" />
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem className="d-none d-sm-block">
+      <span className="p-3">...</span>
+    </PaginationItem>
+    <PaginationItem className="d-none d-sm-block">
+      <PaginationLink href="#">9</PaginationLink>
+    </PaginationItem>
+    <PaginationItem className="d-none d-sm-block">
+      <PaginationLink href="#">10</PaginationLink>
+    </PaginationItem>
+    <PaginationItem active>
+      <PaginationLink href="#">11</PaginationLink>
+    </PaginationItem>
+    <PaginationItem className="d-none d-sm-block">
+      <PaginationLink href="#">12</PaginationLink>
+    </PaginationItem>
+    <PaginationItem className="d-none d-sm-block">
+      <PaginationLink href="#">13</PaginationLink>
+    </PaginationItem>
+    <PaginationItem className="d-none d-sm-block">
+      <span className="p-3">...</span>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink next href="#">
+        <span className="it-chevron-right" />
+      </PaginationLink>
+    </PaginationItem>
+  </Pagination>
+));

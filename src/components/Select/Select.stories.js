@@ -6,10 +6,10 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 
 import SelectExample from "./SelectExample";
 
-storiesOf("Componenti/Select", module)
-  // .addDecorator((story, context) => withInfo("")(story)(context))
-  .addDecorator(withScreenshot())
-  .add("Esempi", () => <SelectExample />)
-  .add("Multipla", () => <SelectExample multi />)
-  .add("Con ricerca", () => <SelectExample search />)
-  .add("Con gruppi di opzioni", () => <SelectExample group multi />);
+const stories = storiesOf("Componenti/Select", module);
+// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator(withScreenshot());
+stories.add("Esempi", () => <SelectExample />);
+stories.add("Multipla", () => <SelectExample multi />);
+stories.add("Con ricerca", () => <SelectExample search />);
+stories.add("Con gruppi di opzioni", () => <SelectExample group multi />);

@@ -1,10 +1,7 @@
 import { configure, addDecorator } from "@storybook/react";
 import { setDefaults } from "@storybook/addon-info";
 import { setOptions } from "@storybook/addon-options";
-import {
-  initScreenshot,
-  setScreenshotOptions
-} from "storybook-chrome-screenshot";
+import { initScreenshot, withScreenshot } from "storybook-chrome-screenshot";
 
 import "bootstrap-italia/dist/css/bootstrap-italia.css";
 import "bootstrap-italia/dist/css/italia-icon-font.css";

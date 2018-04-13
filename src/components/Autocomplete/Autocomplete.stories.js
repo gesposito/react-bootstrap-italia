@@ -6,11 +6,11 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 
 import AutocompleteExample from "./AutocompleteExample";
 
-storiesOf("Componenti/Autocomplete", module)
-  // .addDecorator((story, context) => withInfo("")(story)(context))
-  .addDecorator(withScreenshot())
-  .add("Input autocomplete", () => (
-    <section>
-      <AutocompleteExample />
-    </section>
-  ));
+const stories = storiesOf("Componenti/Autocomplete", module);
+// .addDecorator((story, context) => withInfo("")(story)(context))
+stories.addDecorator(withScreenshot());
+stories.add("Input autocomplete", () => (
+  <section>
+    <AutocompleteExample />
+  </section>
+));
